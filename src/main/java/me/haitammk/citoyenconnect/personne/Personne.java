@@ -23,7 +23,6 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "personne")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Personne {
     
