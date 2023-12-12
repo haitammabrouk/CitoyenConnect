@@ -1,9 +1,5 @@
 package me.haitammk.citoyenconnect.document;
 
-import javax.print.Doc;
-
-import org.hibernate.validator.constraints.EAN;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
