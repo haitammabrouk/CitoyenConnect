@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "administrateur_commune")
-public class AdministrateurCommune extends Administrateur {
+@Table(name = "administrateur_arrondisement")
+public class AdministrateurArrondisement extends Administrateur {
     
 }
