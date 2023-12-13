@@ -1,5 +1,7 @@
 package me.haitammk.citoyenconnect.document;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -7,11 +9,13 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.haitammk.citoyenconnect.demande.DemandeDocument;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +39,6 @@ public class Document {
     @Column(name = "document_type")
     private DocType type;
 
+    @OneToMany(mappedBy = "document")
+    private List<DemandeDocument> demandesDocument;
 }

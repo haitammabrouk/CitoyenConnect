@@ -1,7 +1,5 @@
 package me.haitammk.citoyenconnect.demande;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
-import me.haitammk.citoyenconnect.document.Document;
 import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
 
 @NoArgsConstructor
