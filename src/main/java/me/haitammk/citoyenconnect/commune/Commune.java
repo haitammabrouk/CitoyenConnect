@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.administrateur.AdministrateurCommune;
 import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
+import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -42,4 +43,7 @@ public class Commune {
 
     @OneToOne(mappedBy = "commune", cascade = CascadeType.ALL)
     private AdministrateurCommune administrateurCommune;
+
+    @OneToMany(mappedBy = "commune")
+    private List<FonctionnaireCommune> fonctionnairesCommune;
 }
