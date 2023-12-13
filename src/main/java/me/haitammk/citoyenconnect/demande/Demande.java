@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
+import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,4 +39,9 @@ public class Demande {
     @ManyToOne
 	@JoinColumn(referencedColumnName = "cin", name = "cin")
     private Citoyen citoyen;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "cin", name = "cin")
+    private Fonctionnaire fonctionnaire;
+
 }
