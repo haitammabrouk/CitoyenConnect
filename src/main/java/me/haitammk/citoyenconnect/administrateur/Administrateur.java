@@ -6,10 +6,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import me.haitammk.citoyenconnect.personne.Personne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Administrateur {
+public class Administrateur extends Personne {
     
     @ColumnDefault("administrateur")
     @Column(name = "grade")
