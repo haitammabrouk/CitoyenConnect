@@ -25,10 +25,6 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Personne {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "cin")
-    private String cin;
 
     @NotBlank
     @Column(name = "nom")

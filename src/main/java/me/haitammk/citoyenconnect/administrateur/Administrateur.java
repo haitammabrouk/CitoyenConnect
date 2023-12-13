@@ -4,6 +4,9 @@ import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import me.haitammk.citoyenconnect.personne.Personne;
@@ -11,6 +14,11 @@ import me.haitammk.citoyenconnect.personne.Personne;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Administrateur extends Personne {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_administrateur")
+    private String id_administrateur;
     
     @ColumnDefault("administrateur")
     @Column(name = "grade")
