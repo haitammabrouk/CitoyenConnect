@@ -1,5 +1,6 @@
 package me.haitammk.citoyenconnect.arrondisement;
 
+import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.administrateur.AdministrateurArrondisement;
 import me.haitammk.citoyenconnect.commune.Commune;
+import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireArrondisement;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -42,4 +45,7 @@ public class Arrondisement {
 
     @OneToOne(mappedBy = "arrondisement", cascade = CascadeType.ALL)
     private AdministrateurArrondisement administrateurArrondisement;
+
+    @OneToMany(mappedBy = "arrondisement")
+    private List<FonctionnaireArrondisement> fonctionnairesArrondisemnent;
 }
