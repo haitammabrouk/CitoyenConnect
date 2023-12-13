@@ -5,6 +5,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import me.haitammk.citoyenconnect.administrateur.AdministrateurArrondisement;
+import me.haitammk.citoyenconnect.administrateur.AdministrateurCommune;
 import me.haitammk.citoyenconnect.commune.Commune;
 
 @Entity
@@ -17,5 +18,5 @@ public class FonctionnaireCommune extends Fonctionnaire {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "cin", name = "cin")
-    private AdministrateurArrondisement administrateurArrondisement;
+    private AdministrateurCommune administrateurCommune;
 }

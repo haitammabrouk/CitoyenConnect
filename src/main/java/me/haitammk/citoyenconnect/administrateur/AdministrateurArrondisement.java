@@ -20,4 +20,5 @@ public class AdministrateurArrondisement extends Administrateur {
 
     @OneToMany(mappedBy = "administrateurArrondisement")
     private List<FonctionnaireArrondisement> fonctionnairesArrondisement;
+
 }
