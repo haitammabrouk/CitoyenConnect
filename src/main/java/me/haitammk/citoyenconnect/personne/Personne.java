@@ -27,6 +27,7 @@ public class Personne {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cin")
     private String cin;
 
     @NotBlank
