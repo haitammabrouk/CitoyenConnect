@@ -11,6 +11,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import me.haitammk.citoyenconnect.demande.Demande;
 import me.haitammk.citoyenconnect.personne.Personne;
+import me.haitammk.citoyenconnect.reclamation.Reclamation;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -22,4 +23,7 @@ public class Fonctionnaire extends Personne {
 
     @OneToMany(mappedBy = "fonctionnaire")
     private List<Demande> demandes;
+
+    @OneToMany(mappedBy = "fonctionnaire")
+    private List<Reclamation> reclamations;
 }
