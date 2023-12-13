@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import me.haitammk.citoyenconnect.administrateur.AdministrateurArrondisement;
 import me.haitammk.citoyenconnect.administrateur.AdministrateurCommune;
 import me.haitammk.citoyenconnect.commune.Commune;
 

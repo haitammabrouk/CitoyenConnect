@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
+import me.haitammk.citoyenconnect.document.Document;
 import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
 
 @NoArgsConstructor
