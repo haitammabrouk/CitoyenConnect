@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
+import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireArrondisement;
+import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,7 +41,11 @@ public class Demande {
     private Citoyen citoyen;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id_fonctionnaire", name = "id_fonctionnaire")
-    private Fonctionnaire fonctionnaire;
+    @JoinColumn(referencedColumnName = "id_fonctionnaireArrondisement", name = "id_fonctionnaireArrondisement")
+    private FonctionnaireArrondisement fonctionnaireArrondisement;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id_fonctionnaireCommune", name = "id_fonctionnaireCommune")
+    private FonctionnaireCommune fonctionnaireCommune;
 
 }

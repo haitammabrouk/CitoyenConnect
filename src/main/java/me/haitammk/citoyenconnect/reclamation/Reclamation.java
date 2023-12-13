@@ -14,9 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
 import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireArrondisement;
-import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
