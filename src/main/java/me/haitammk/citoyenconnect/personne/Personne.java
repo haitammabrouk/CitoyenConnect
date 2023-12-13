@@ -21,10 +21,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Personne {
-    
 
     @NotBlank
     @Column(name = "nom")

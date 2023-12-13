@@ -16,14 +16,8 @@ import me.haitammk.citoyenconnect.demande.Demande;
 import me.haitammk.citoyenconnect.personne.Personne;
 import me.haitammk.citoyenconnect.reclamation.Reclamation;
 
-@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Fonctionnaire extends Personne {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_fonctionnaire")
-    private String id_fonctionnaire;
     
     @ColumnDefault("fonctionnaire")
     @Column(name = "grade")

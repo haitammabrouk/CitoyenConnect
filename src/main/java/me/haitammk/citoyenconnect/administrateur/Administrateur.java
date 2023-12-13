@@ -11,14 +11,8 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import me.haitammk.citoyenconnect.personne.Personne;
 
-@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Administrateur extends Personne {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_administrateur")
-    private String id_administrateur;
     
     @ColumnDefault("administrateur")
     @Column(name = "grade")

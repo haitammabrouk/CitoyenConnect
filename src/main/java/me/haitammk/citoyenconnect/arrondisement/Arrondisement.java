@@ -43,9 +43,9 @@ public class Arrondisement {
 	@JoinColumn(referencedColumnName = "id_commune", name = "id_commune")
     private Commune commune;
 
-    @OneToOne(mappedBy = "arrondisement", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "id_administrateurArrondisement", cascade = CascadeType.ALL)
     private AdministrateurArrondisement administrateurArrondisement;
 
-    @OneToMany(mappedBy = "arrondisement")
+    @OneToMany(mappedBy = "id_fonctionnaireArrondisement")
     private List<FonctionnaireArrondisement> fonctionnairesArrondisemnent;
 }

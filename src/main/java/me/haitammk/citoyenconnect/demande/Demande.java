@@ -35,11 +35,11 @@ public class Demande {
     private byte[] carte_nationale;
 
     @ManyToOne
-	@JoinColumn(referencedColumnName = "cin", name = "cin")
+	@JoinColumn(referencedColumnName = "id_citoyen", name = "id_citoyen")
     private Citoyen citoyen;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "cin", name = "cin")
+    @JoinColumn(referencedColumnName = "id_fonctionnaire", name = "id_fonctionnaire")
     private Fonctionnaire fonctionnaire;
 
 }
