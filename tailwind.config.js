@@ -4,7 +4,19 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        'custom' : '560px',
+        'card' : '340px'
+      }
+      ,fontFamily: {
+        cairo: ['Cairo', 'sans-serif'],
+        heebo: ['Heebo', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
