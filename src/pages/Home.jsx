@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import cnie from '../assets/cnie.png'
 import map from '../assets/map.png'
+import Footer from "../components/Footer"
 
 function Home() {
   return (
@@ -48,6 +49,7 @@ function Home() {
                     </ul>
             </div>
         </div>
+        <Footer />
     </div>
   )
 }
