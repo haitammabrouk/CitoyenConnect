@@ -1,6 +1,9 @@
-package me.haitammk.citoyenconnect.demande;
+package me.haitammk.citoyenconnect.fonctionnaireCommune;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,37 +21,40 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.citoyen.Citoyen;
-import me.haitammk.citoyenconnect.fonctionnaireArrondisement.FonctionnaireArrondisement;
+import me.haitammk.citoyenconnect.administrateurCommune.AdministrateurCommune;
+import me.haitammk.citoyenconnect.commune.Commune;
+import me.haitammk.citoyenconnect.demande.DemandeDocument;
+import me.haitammk.citoyenconnect.reclamation.Reclamation;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @Entity
-@Table(name = "demande_inscription")
-public class DemandeInscription {
+@Table(name = "fonctionnaire_commune")
+public class FonctionnaireCommune {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_demandeInscription")
-    private long id_demandeInscription;
+    @Column(name = "id_fonctionnaireCommune")
+    private String id_fonctionnaireCommune;
 
-    @Lob
-    @Column(name= "carte_nationale", columnDefinition = "BLOB")
-    private byte[] carte_nationale;
+    @Column(name = "grade")
+    private String grade ;
 
-    @ManyToOne
-	@JoinColumn(referencedColumnName = "id_citoyen", name = "id_citoyen")
-    private Citoyen citoyen;
+    @OneToMany(mappedBy = "fonctionnaireCommune")
+    private List<DemandeDocument> demandes_document;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id_fonctionnaireArrondisement", name = "id_fonctionnaireArrondisement")
-    private FonctionnaireArrondisement fonctionnaireArrondisement;
+    @OneToMany(mappedBy = "fonctionnaireCommune")
+    private List<Reclamation> reclamations;
     
-    @NotBlank
-    @Column(name = "cin")
-    private String cin;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id_commune", name = "id_commune")
+    private Commune commune;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id_administrateurCommune", name = "id_administrateurCommune")
+    private AdministrateurCommune administrateurCommune;
 
     @NotBlank
     @Column(name = "nom")
@@ -91,4 +98,8 @@ public class DemandeInscription {
     @Lob
     @Column(name = "image", columnDefinition = "BLOB")
     private byte[] image;
+
+    @Lob
+    @Column(name = "carte_nationale", columnDefinition = "BLOB")
+    private byte[] carteNationale;
 }

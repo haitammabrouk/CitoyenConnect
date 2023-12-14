@@ -1,6 +1,9 @@
-package me.haitammk.citoyenconnect.demande;
+package me.haitammk.citoyenconnect.administrateurCommune;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +12,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,37 +21,31 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.citoyen.Citoyen;
-import me.haitammk.citoyenconnect.fonctionnaireArrondisement.FonctionnaireArrondisement;
+import me.haitammk.citoyenconnect.commune.Commune;
+import me.haitammk.citoyenconnect.fonctionnaireCommune.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @Entity
-@Table(name = "demande_inscription")
-public class DemandeInscription {
-
+@Table(name = "administrateur_commune")
+public class AdministrateurCommune {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_demandeInscription")
-    private long id_demandeInscription;
+    @Column(name = "id_administrateurCommune")
+    private String id_administrateurCommune;
 
-    @Lob
-    @Column(name= "carte_nationale", columnDefinition = "BLOB")
-    private byte[] carte_nationale;
+    @Column(name = "grade")
+    private String grade ;
 
-    @ManyToOne
-	@JoinColumn(referencedColumnName = "id_citoyen", name = "id_citoyen")
-    private Citoyen citoyen;
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id_commune", name = "id_commune")
+    private Commune commune;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id_fonctionnaireArrondisement", name = "id_fonctionnaireArrondisement")
-    private FonctionnaireArrondisement fonctionnaireArrondisement;
-    
-    @NotBlank
-    @Column(name = "cin")
-    private String cin;
+    @OneToMany(mappedBy = "administrateurCommune")
+    private List<FonctionnaireCommune> fonctionnairesCommune;
 
     @NotBlank
     @Column(name = "nom")
@@ -91,4 +89,8 @@ public class DemandeInscription {
     @Lob
     @Column(name = "image", columnDefinition = "BLOB")
     private byte[] image;
+
+    @Lob
+    @Column(name = "carte_nationale", columnDefinition = "BLOB")
+    private byte[] carteNationale;
 }

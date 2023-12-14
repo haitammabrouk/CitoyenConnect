@@ -16,9 +16,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.administrateur.AdministrateurArrondisement;
+import me.haitammk.citoyenconnect.administrateurArrondisement.AdministrateurArrondisement;
 import me.haitammk.citoyenconnect.commune.Commune;
-import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireArrondisement;
+import me.haitammk.citoyenconnect.fonctionnaireArrondisement.FonctionnaireArrondisement;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +31,7 @@ public class Arrondisement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_arrondisement")
-    private long id;
+    private long id_arrondisement;
 
     @Column(name = "adresse") 
     private String adresse;
@@ -43,9 +43,9 @@ public class Arrondisement {
 	@JoinColumn(referencedColumnName = "id_commune", name = "id_commune")
     private Commune commune;
 
-    @OneToOne(mappedBy = "id_administrateurArrondisement", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "arrondisement", cascade = CascadeType.ALL)
     private AdministrateurArrondisement administrateurArrondisement;
 
-    @OneToMany(mappedBy = "id_fonctionnaireArrondisement")
+    @OneToMany(mappedBy = "arrondisement", cascade = CascadeType.ALL)
     private List<FonctionnaireArrondisement> fonctionnairesArrondisemnent;
 }

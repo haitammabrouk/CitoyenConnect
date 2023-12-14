@@ -15,9 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
-import me.haitammk.citoyenconnect.fonctionnaire.Fonctionnaire;
-import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireArrondisement;
-import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
+import me.haitammk.citoyenconnect.fonctionnaireArrondisement.FonctionnaireArrondisement;
+import me.haitammk.citoyenconnect.fonctionnaireCommune.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +27,7 @@ import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
 public class Demande {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id_demande")
     private long id;
 

@@ -15,9 +15,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.administrateur.AdministrateurCommune;
+import me.haitammk.citoyenconnect.administrateurCommune.AdministrateurCommune;
 import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
-import me.haitammk.citoyenconnect.fonctionnaire.FonctionnaireCommune;
+import me.haitammk.citoyenconnect.fonctionnaireCommune.FonctionnaireCommune;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class Commune {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_commune")
-    private long id;
+    private long id_commune;
 
     @Column(name = "region") 
     private String region;

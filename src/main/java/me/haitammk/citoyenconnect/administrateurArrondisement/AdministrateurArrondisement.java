@@ -1,28 +1,51 @@
-package me.haitammk.citoyenconnect.personne;
+package me.haitammk.citoyenconnect.administrateurArrondisement;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
+import me.haitammk.citoyenconnect.fonctionnaireArrondisement.FonctionnaireArrondisement;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Personne {
+@Entity
+@Table(name = "administrateur_arrondisement")
+public class AdministrateurArrondisement {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_administrateurArrondisement")
+    private String id_administrateurArrondisement;
+
+    @Column(name = "grade")
+    private String grade ;
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "id_arrondisement", name = "id_arrondisement")
+    private Arrondisement arrondisement;
+
+    @OneToMany(mappedBy = "administrateurArrondisement")
+    private List<FonctionnaireArrondisement> fonctionnairesArrondisement;
 
     @NotBlank
     @Column(name = "nom")
@@ -71,4 +94,3 @@ public class Personne {
     @Column(name = "carte_nationale", columnDefinition = "BLOB")
     private byte[] carteNationale;
 }
-

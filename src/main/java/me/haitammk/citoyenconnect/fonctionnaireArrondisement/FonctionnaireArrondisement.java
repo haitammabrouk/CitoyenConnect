@@ -1,15 +1,18 @@
-package me.haitammk.citoyenconnect.citoyen;
+package me.haitammk.citoyenconnect.fonctionnaireArrondisement;
 
-
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
+
+import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -18,38 +21,52 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.haitammk.citoyenconnect.administrateurArrondisement.AdministrateurArrondisement;
+import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
 import me.haitammk.citoyenconnect.demande.DemandeDocument;
 import me.haitammk.citoyenconnect.demande.DemandeEgalisation;
 import me.haitammk.citoyenconnect.demande.DemandeInscription;
 import me.haitammk.citoyenconnect.demande.DemandeSignature;
+import me.haitammk.citoyenconnect.reclamation.Reclamation;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @Entity
-@Table(name = "citoyen")
-public class Citoyen {
+@Table(name = "fonctionnaire_arrondisement")
+public class FonctionnaireArrondisement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_citoyen")
-    private String id_citoyen;
-    
-    @Column(name = "access_code", unique = true)
-    private String accessCode;
+    @Column(name = "id_fonctionnaireArrondisement")
+    private String id_fonctionnaireArrondisement;
 
-    @OneToMany(mappedBy = "citoyen")
+    @Column(name = "grade")
+    private String grade ;
+
+    @OneToMany(mappedBy = "fonctionnaireArrondisement")
     private List<DemandeDocument> demandes_documment;
 
-    @OneToMany(mappedBy = "citoyen")
+    @OneToMany(mappedBy = "fonctionnaireArrondisement")
     private List<DemandeEgalisation> demandes_egalisation;
 
-    @OneToMany(mappedBy = "citoyen")
+    @OneToMany(mappedBy = "fonctionnaireArrondisement")
     private List<DemandeInscription> demandes_inscriptions;
 
-    @OneToMany(mappedBy = "citoyen")
+    @OneToMany(mappedBy = "fonctionnaireArrondisement")
     private List<DemandeSignature> demandes_signature;
+
+    @OneToMany(mappedBy = "fonctionnaireArrondisement")
+    private List<Reclamation> reclamations;
+    
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id_arrondisement", name = "id_arrondisement")
+    private Arrondisement arrondisement;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id_administrateurArrondisement", name = "id_administrateurArrondisement")
+    private AdministrateurArrondisement administrateurArrondisement;
 
     @NotBlank
     @Column(name = "nom")
