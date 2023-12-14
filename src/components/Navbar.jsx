@@ -2,7 +2,7 @@ import logo from '../assets/logo.png'
 
 export default function Navbar() {
   return (
-    <div className="navbar w-full">
+    <div className="w-full">
         <div className="upper flex items-center flex-wrap ">
             <div className="logo w-80 pl-5">
                 <img src={logo} alt="" />
