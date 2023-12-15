@@ -1,14 +1,11 @@
 
-import CreationMdp from './pages/CreationMdp'
-import EmailSent from './pages/EmailSent'
-import EnterEmail from './pages/EnterEmail'
-import Login from './pages/Login'
+import CitoyenHome from './pages/CitoyenHome'
 
 function App() {
 
   return (
     <>
-    <EmailSent />
+    <CitoyenHome />
     </>
   )
 }
