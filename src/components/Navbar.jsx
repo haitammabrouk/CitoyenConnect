@@ -22,6 +22,7 @@ export default function Navbar() {
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Informations Pratiques</a></li>
+                <li><a href="#">Connexion</a></li>
             </ul>
         </div>
     </div>
