@@ -1,10 +1,10 @@
-import Home from "./pages/Home"
+import DemandeInscription from "./pages/DemandeInscription"
 
 function App() {
 
   return (
     <>
-    <Home />
+    <DemandeInscription />
     </>
   )
 }
