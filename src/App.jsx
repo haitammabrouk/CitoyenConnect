@@ -1,11 +1,12 @@
 
-import InscriptionEnCours from "./pages/InscriptionEnCours"
+import CreationMdp from './pages/CreationMdp'
+import Login from './pages/Login'
 
 function App() {
 
   return (
     <>
-    <InscriptionEnCours />
+    <Login />
     </>
   )
 }
