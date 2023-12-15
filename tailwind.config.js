@@ -7,7 +7,8 @@ export default {
     extend: {
       width: {
         'custom' : '560px',
-        'card' : '340px'
+        'card' : '340px',
+        'text' : '650px',
       }
       ,fontFamily: {
         cairo: ['Cairo', 'sans-serif'],

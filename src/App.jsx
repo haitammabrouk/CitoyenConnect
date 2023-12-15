@@ -1,10 +1,11 @@
-import DemandeInscription from "./pages/DemandeInscription"
+
+import InscriptionEnCours from "./pages/InscriptionEnCours"
 
 function App() {
 
   return (
     <>
-    <DemandeInscription />
+    <InscriptionEnCours />
     </>
   )
 }
