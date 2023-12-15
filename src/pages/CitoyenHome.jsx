@@ -126,6 +126,12 @@ function CitoyenHome() {
                                                 <strong>Acte de Construction</strong>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="">
+                                                <i className="fa fa-picture-o"></i>
+                                                <strong>Reclamations</strong>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

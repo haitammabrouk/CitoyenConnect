@@ -19,7 +19,7 @@ function CitoyenNavbar() {
             </div>
         </div>
         <div className="lower pt-3">
-            <ul className='links bg-[#d59d32] flex justify-evenly text-[#ffffff] py-1'>
+            <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Informations Pratiques</a></li>
