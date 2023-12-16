@@ -14,9 +14,6 @@ function CitoyenNavbar() {
                 </h1>
                 <h1 className='font-bold'>Citoyen Connect</h1>
             </div>
-            <div className="content">
-                
-            </div>
         </div>
         <div className="lower pt-3">
             <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
