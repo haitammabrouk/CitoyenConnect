@@ -1,4 +1,5 @@
 import CitoyenOptions from './components/CitoyenOptions'
+import ActeNaissance from './pages/ActeNaissance'
 import CitoyenHome from './pages/CitoyenHome'
 import DeclarationCelibat from './pages/DeclarationCelibat'
 import DeclarationDeces from './pages/DeclarationDeces'
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-    <DeclarationDeces />
+    <ActeNaissance />
     </>
   )
 }

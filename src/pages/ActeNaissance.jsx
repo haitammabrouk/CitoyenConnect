@@ -1,16 +1,16 @@
-import CitoyenNavbar from "../components/CitoyenNavbar"
-import CitoyenOptions from "../components/CitoyenOptions"
-import Footer from "../components/Footer"
+import React from 'react'
+import Footer from '../components/Footer'
+import CitoyenOptions from '../components/CitoyenOptions'
+import CitoyenNavbar from '../components/CitoyenNavbar'
 
-
-function DeclarationCelibat() {
+function ActeNaissance() {
   return (
     <div className="w-full font-cairo">
         <CitoyenNavbar />
         <div className="page-content min-h-screen">
             <div className="sections-content flex justify-evenly pt-6">
                 <div className="first-section w-8/12 mb-20 ">
-                <h1 className="text-2xl font-semibold text-[#336C4E] pb-2 pt-6 border-b border-b-[#B0B0B0]">Declaration Célibat</h1>
+                <h1 className="text-2xl font-semibold text-[#336C4E] pb-2 pt-6 border-b border-b-[#B0B0B0]">Acte de Naissance</h1>
                 <p className="text-sm font-semibold  pt-6 mx-4"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
                 <form className="pt-8" action="" method="post">
                     <div className="parts flex flex-wrap justify-around">
@@ -23,6 +23,7 @@ function DeclarationCelibat() {
                                 <label className="text-xs font-semibold block pb-3" htmlFor="image">Image personelle <span className="text-[#FF0000]">*</span></label>
                                 <input type="file" id="image" name="image" />
                             </div>
+                            
                         </div>
                         <div className="second-part space-y-6">
                             <div className="carte_national">
@@ -52,4 +53,4 @@ function DeclarationCelibat() {
   )
 }
 
-export default DeclarationCelibat
+export default ActeNaissance
