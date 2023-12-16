@@ -2,7 +2,7 @@ import React from 'react'
 
 function DemandeCard() {
   return (
-    <div className='font-cairo border border-[#2557A7] w-3/12 rounded-xl px-2 my-3'>
+    <div className='font-cairo border border-[#2557A7] w-96 rounded-xl px-2 my-3'>
         <a href="#">
             <div className="content space-y-2">
                 <h1 className='text-xl font-semibold pt-2 '>Acte de naissance</h1>
