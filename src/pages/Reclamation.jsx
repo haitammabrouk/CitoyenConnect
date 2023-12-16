@@ -17,17 +17,17 @@ function Reclamation() {
                         <div className="first-part space-y-6">
                             <div className="nom">
                                 <label className="text-xs font-semibold block pb-3" htmlFor="nom">Nom <span className="text-[#FF0000]">*</span></label>
-                                <input className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="nom" name="nom" />
+                                <input className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="nom" name="nom" required />
                             </div>
                             <div className="message">
                                 <label className="text-xs font-semibold block pb-3" htmlFor="message">Message <span className="text-[#FF0000]">*</span></label>
-                                <textarea name="message" id="message" cols="30" rows="10" className="border border-[#B0B0B0] h-36 w-96 px-4 py-2 rounded-3xl outline-none"></textarea>
+                                <textarea name="message" id="message" cols="30" rows="10" className="border border-[#B0B0B0] h-36 w-96 px-4 py-2 rounded-3xl outline-none required"></textarea>
                             </div>
                         </div>
                         <div className="second-part space-y-6">
                             <div className="email">
                                 <label className="text-xs font-semibold block pb-3" htmlFor="email">Email <span className="text-[#FF0000]">*</span></label>
-                                <input className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="email" id="email" name="email" />
+                                <input className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="email" id="email" name="email" required />
                             </div>
                         </div>
                     </div>
