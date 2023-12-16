@@ -6,7 +6,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #d59d32;
+    background-color: #336C4E;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -20,6 +20,6 @@
     
   }
   
-  .dropdown-content a:hover {background-color: #826531;}
+  .dropdown-content a:hover {background-color: #234935;}
   
   .dropdown:hover .dropdown-content {display: block;}
