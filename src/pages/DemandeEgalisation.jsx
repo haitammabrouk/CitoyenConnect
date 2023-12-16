@@ -19,7 +19,10 @@ function DemandeEgalisation() {
                                 <label className="text-xs font-semibold block pb-3" htmlFor="cin">CIN <span className="text-[#FF0000]">*</span></label>
                                 <input className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="cin" name="cin" />
                             </div>
-                    
+                            <div className="carte_national">
+                                <label className="text-xs font-semibold block pb-3" htmlFor="carte_nationale">Carte nationale <span className="text-[#FF0000]">*</span></label>
+                                <input type="file" id="carte_national" name="carte_national" />
+                            </div>
                         </div>
                         <div className="second-part space-y-6">
                             <div className="document">

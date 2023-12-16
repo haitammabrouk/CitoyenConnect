@@ -25,7 +25,6 @@ function CitoyenNavbar() {
                     <div className="dropdown-content">
                         <a href="#">Consulter votre profil</a>
                         <a href="#">Vos Demandes</a>
-                        <a href="#">Réclamations</a>
                         <a href="#">Deconnexion</a>
                     </div>
                 </li>
