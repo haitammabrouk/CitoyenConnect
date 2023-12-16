@@ -32,7 +32,7 @@ function ActeNaissance() {
                             </div>
                         </div>
                     </div>
-                    <div className="btn flex justify-start py-8 pl-5">
+                    <div className="btn flex justify-start py-8 pl-10">
                         <input type="submit" value="Valider" className="bg-[#336C4E] text-[#ffffff] rounded-xl px-10 py-2" />
                     </div>
                 </form>
