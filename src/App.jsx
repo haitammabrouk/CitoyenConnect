@@ -8,6 +8,7 @@ import ConsultationProfil from './pages/ConsultationProfil'
 import DeclarationCelibat from './pages/DeclarationCelibat'
 import DeclarationDeces from './pages/DeclarationDeces'
 import DeclarationHonneur from './pages/DeclarationHonneur'
+import DeclarationHonneurTemplate from './pages/DeclarationHonneurTemplate'
 import DemandeEgalisation from './pages/DemandeEgalisation'
 import DemandeInscription from './pages/DemandeInscription'
 import DemandeSignature from './pages/DemandeSignature'
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <>
-    <CitoyenHome />
+    <DeclarationHonneurTemplate />
     </>
   )
 }
