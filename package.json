@@ -13,8 +13,10 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "html-to-pdfmake": "^2.5.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
+    "pdfmake": "^0.2.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-signature-canvas": "^1.0.6"
