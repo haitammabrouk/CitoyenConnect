@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DemandeInscriptionCard() {
+function ReclamationCardList() {
   return (
     <div>
         
@@ -8,4 +8,4 @@ function DemandeInscriptionCard() {
   )
 }
 
-export default DemandeInscriptionCard
+export default ReclamationCardList
