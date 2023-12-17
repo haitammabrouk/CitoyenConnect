@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar"
 import '../styles/citoyennavbar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import FonctionnaireArronNavbar from '../components/FonctionnaireArronNavbar'
+import ReclamationCard from "../components/ReclamationCard"
+import ReclamationCardDetails from "../components/ReclamationCardDetails"
 
 
 function CitoyenDemandes() {
@@ -18,12 +20,12 @@ function CitoyenDemandes() {
                         <h1 className="text-sm font-bold border-b-2 border-b-[#C3C5C3] text-center pb-3">Vous pouvez consulter les reclamations des citoyens ci-dessous.</h1>
                     </div>
                     <div className="first-content">
-                        <DemandeCard />
+                        <ReclamationCard />
                     </div>
                 </div>
                 <div className="second pl-6">
                     <div className="second-content">
-                        <DemandeDetailsCard />
+                        <ReclamationCardDetails />
                     </div>
                 </div>
             </div>
