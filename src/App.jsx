@@ -12,13 +12,14 @@ import DeclarationHonneurTemplate from './pages/DeclarationHonneurTemplate'
 import DemandeEgalisation from './pages/DemandeEgalisation'
 import DemandeInscription from './pages/DemandeInscription'
 import DemandeSignature from './pages/DemandeSignature'
+import FonctionnaireArronHome from './pages/FonctionnaireArronHome'
 import Reclamation from './pages/Reclamation'
 
 function App() {
 
   return (
     <>
-    <DemandeSignature />
+    <FonctionnaireArronHome />
     </>
   )
 }

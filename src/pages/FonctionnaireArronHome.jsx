@@ -1,10 +1,35 @@
 import React from 'react'
-import FonctionnaireNavbar from '../components/FonctionnaireNavbar'
+import FonctionnaireArronNavbar from '../components/FonctionnaireArronNavbar'
+import StatCard from '../components/StatCard'
 
 function FonctionnaireArronHome() {
   return (
     <div className='w-full font-cairo'>
-        <FonctionnaireNavbar />
+        <FonctionnaireArronNavbar />
+        <div className="page min-h-screen flex justify-center px-6 pt-6">
+            <div className="page-content bg-[#efeff5] px-10 py-10">
+                <div className="welcome">
+                    <h1 className='text-3xl font-semibold'>Bienvenue Haitam Mabrouk</h1>
+                </div>
+                <div className="page-description pt-3 pr-8 pb-8">
+                    Cele Dashboard vous fournit un aperçu complet de l'activité
+                     administrative en temps réel. Suivez le statut des 
+                     demandes, identifiez les tendances, et prenez des 
+                     décisions éclairées pour optimiser l'efficacité 
+                     opérationnelle. Explorez les statistiques clés pour une 
+                     gestion proactive et transparente des demandes des 
+                     citoyens.
+                </div>
+                <div className="content flex justify-between">
+                    <div className="first-part">
+                        graphe(les demandes le plus frequentes)
+                    </div>
+                    <div className="second-part">
+                        <StatCard />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
