@@ -5,8 +5,8 @@ import ActeNaissance from './pages/ActeNaissance'
 import CitoyenDemandes from './pages/CitoyenDemandes'
 import CitoyenHome from './pages/CitoyenHome'
 import ConsultationProfil from './pages/ConsultationProfil'
+import DecalarationCelibatTemplate from './pages/DecalarationCelibatTemplate'
 import DeclarationCelibat from './pages/DeclarationCelibat'
-import DeclarationDeces from './pages/DeclarationDeces'
 import DeclarationHonneur from './pages/DeclarationHonneur'
 import DeclarationHonneurTemplate from './pages/DeclarationHonneurTemplate'
 import DemandeEgalisation from './pages/DemandeEgalisation'
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-    <DeclarationHonneurTemplate />
+    <DemandeSignature />
     </>
   )
 }
