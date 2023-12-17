@@ -14,12 +14,13 @@ import DemandeInscription from './pages/DemandeInscription'
 import DemandeSignature from './pages/DemandeSignature'
 import FonctionnaireArronHome from './pages/FonctionnaireArronHome'
 import Reclamation from './pages/Reclamation'
+import FonctionnaireConsultationProfil from './pages/FonctionnaireConsultationProfil'
 
 function App() {
 
   return (
     <>
-    <ConsultationProfil />
+    <FonctionnaireConsultationProfil />
     </>
   )
 }

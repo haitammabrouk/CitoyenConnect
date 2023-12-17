@@ -10,7 +10,7 @@ function ConsultationProfil() {
                 <h1 className="text-center text-3xl font-semibold text-[#336C4E] py-5">Informations Personnelles</h1>
                 <p className="text-sm font-semibold  pt-5 border-b border-b-[#A5AAA5] mx-10"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
                 <form className="pt-4" action="" method="post">
-                    <div className="parts flex flex-wrap justify-around items-center">
+                    <div className="parts flex flex-wrap justify-around items-baseline">
                         <div className="first-part space-y-6">
                             <div className="cin">
                                 <label className="text-xs font-semibold block pb-3" htmlFor="cin">CIN <span className="text-[#FF0000]">*</span></label>
