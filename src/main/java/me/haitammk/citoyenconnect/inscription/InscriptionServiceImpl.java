@@ -44,7 +44,7 @@ public class InscriptionServiceImpl implements InscriptionService {
         .carte_national(inscription.getCarte_national())
         .personal_image(inscription.getPersonal_image())
         .signature(inscription.getSignature())
-        .signature(inscription.getSignature()).build();
+        .build();
 
         return inscriptionRepository.save(ins);
     }

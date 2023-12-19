@@ -8,6 +8,8 @@ public interface CitoyenService {
 
     Citoyen addCitoyen(Citoyen citoyen);
 
+    Citoyen updateCitoyen(Citoyen citoyen, String cin);
+
     List<Citoyen> getAllCitoyens();
 
     Citoyen removeCitoyen(String cin);
