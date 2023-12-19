@@ -108,15 +108,15 @@ public class Personne {
     private String adresse;
 
     @Lob
-    @Column(name = "cin", columnDefinition = "BLOB")
+    @Column(name = "personal_image", columnDefinition = "BLOB")
     private byte[] personal_image;
 
     @Lob
-    @Column(name = "cin", columnDefinition = "BLOB")
+    @Column(name = "carte_national", columnDefinition = "BLOB")
     private byte[] carte_national;
 
     @Lob
-    @Column(name = "cin", columnDefinition = "BLOB")
+    @Column(name = "signature", columnDefinition = "BLOB")
     private byte[] signature;
 
 
