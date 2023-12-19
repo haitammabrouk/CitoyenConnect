@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.haitammk.citoyenconnect.demande.Demande;
+import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
+import me.haitammk.citoyenconnect.demandeEgalisation.DemandeEgalisation;
 import me.haitammk.citoyenconnect.personne.Personne;
 
 @Entity
@@ -26,5 +28,8 @@ public class Citoyen extends Personne {
     private String code_conf;
 
     @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL)
-    private List<Demande> demandes;
+    private List<DemandeEgalisation> demandes_egalisation;
+
+    @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL)
+    private List<DemandeConformite> demandes_conformite;
 }
