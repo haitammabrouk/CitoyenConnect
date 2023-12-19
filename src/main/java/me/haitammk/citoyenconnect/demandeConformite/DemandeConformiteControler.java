@@ -25,7 +25,7 @@ public class DemandeConformiteControler {
     @Autowired
     private DemandeConformiteService demandeConformiteService;
 
-     @GetMapping(value = "/DemandeConformite/{cin}")
+     @GetMapping(value = "/DemandeConformite/{id}")
     public ResponseEntity<DemandeConformite> getDemandeConformite(@PathVariable("id") Long id){
         DemandeConformite demandeConformite = demandeConformiteService.getDemandeConformite(id);
         return new ResponseEntity<>(demandeConformite,  HttpStatus.OK);

@@ -6,7 +6,7 @@ public interface DemandeEgalisationService {
     
     DemandeEgalisation addDemandeEgalisation(DemandeEgalisation demandeEgalisation);
 
-    DemandeEgalisation updateDemandeEgalisation(String status, String raison, Long id);
+    DemandeEgalisation updateDemandeEgalisation(DemandeEgalisation demande, Long id);
 
     DemandeEgalisation getDemandeEgalisation(Long id);
 

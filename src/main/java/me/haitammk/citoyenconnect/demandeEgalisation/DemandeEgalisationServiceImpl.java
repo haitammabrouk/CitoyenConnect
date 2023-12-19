@@ -24,12 +24,13 @@ public class DemandeEgalisationServiceImpl implements DemandeEgalisationService 
     }
 
     @Override
-    public DemandeEgalisation updateDemandeEgalisation(String status, String raison, Long id) {
-        DemandeEgalisation demande = this.getDemandeEgalisation(id);
-        demande.setDate(new Date());
-        demande.setStatus(status);
-        demande.setRaison(raison);
-        return demandeEgalisationRepository.save(demande);
+    public DemandeEgalisation updateDemandeEgalisation(DemandeEgalisation demande, Long id) {
+        DemandeEgalisation dem = this.getDemandeEgalisation(id);
+        dem.setDate(new Date());
+        dem.setStatus(demande.getStatus());
+        dem.setRaison(demande.getRaison());
+        dem.setDocument(demande.getDocument());
+        return demandeEgalisationRepository.save(dem);
     }
 
     @Override
