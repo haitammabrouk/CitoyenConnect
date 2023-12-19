@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
-import me.haitammk.citoyenconnect.citoyen.Citoyen;
-
 @RestController
 public class InscriptionControler {
     

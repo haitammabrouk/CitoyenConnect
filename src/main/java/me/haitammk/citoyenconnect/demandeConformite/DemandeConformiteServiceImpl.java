@@ -24,12 +24,13 @@ public class DemandeConformiteServiceImpl implements DemandeConformiteService {
     }
 
     @Override
-    public DemandeConformite updateDemandeConformite(String status, String raison, Long id) {
-        DemandeConformite demande = this.getDemandeConformite(id);
-        demande.setDate(new Date());
-        demande.setStatus(status);
-        demande.setRaison(raison);
-        return demandeConformiteRepository.save(demande);
+    public DemandeConformite updateDemandeConformite(DemandeConformite demande, Long id) {
+        DemandeConformite dem = this.getDemandeConformite(id);
+        dem.setDate(new Date());
+        dem.setStatus(demande.getStatus());
+        dem.setRaison(demande.getRaison());
+        dem.setDocument(demande.getDocument());
+        return demandeConformiteRepository.save(dem);
     }
 
     @Override

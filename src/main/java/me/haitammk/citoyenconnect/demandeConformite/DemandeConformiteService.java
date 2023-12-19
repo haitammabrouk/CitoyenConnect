@@ -6,7 +6,7 @@ public interface DemandeConformiteService {
     
     DemandeConformite addDemandeConformite(DemandeConformite demandeConformite);
 
-    DemandeConformite updateDemandeConformite(String status, String raison, Long id);
+    DemandeConformite updateDemandeConformite(DemandeConformite demande, Long id);
 
     DemandeConformite getDemandeConformite(Long id);
 
