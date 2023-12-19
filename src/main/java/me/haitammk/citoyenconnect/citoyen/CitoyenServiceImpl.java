@@ -22,6 +22,13 @@ public class CitoyenServiceImpl implements CitoyenService {
     }
 
     @Override
+    public Citoyen removeCitoyen(String cin) {
+        Citoyen citoyen = this.getCitoyen(cin);
+        citoyenRepository.delete(citoyen);
+        return citoyen;
+    }
+
+    @Override
     public List<Citoyen> getAllCitoyens() {
         return (List<Citoyen>) citoyenRepository.findAll();
     }

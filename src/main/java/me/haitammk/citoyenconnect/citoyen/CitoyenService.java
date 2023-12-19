@@ -9,4 +9,6 @@ public interface CitoyenService {
     Citoyen addCitoyen(Citoyen citoyen);
 
     List<Citoyen> getAllCitoyens();
+
+    Citoyen removeCitoyen(String cin);
 }

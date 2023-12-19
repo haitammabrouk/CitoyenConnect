@@ -10,5 +10,7 @@ public interface DemandeConformiteService {
 
     DemandeConformite getDemandeConformite(Long id);
 
+    DemandeConformite removeDemandeConformite(Long id);
+
     List<DemandeConformite> getAllDemandesConformite();
 }

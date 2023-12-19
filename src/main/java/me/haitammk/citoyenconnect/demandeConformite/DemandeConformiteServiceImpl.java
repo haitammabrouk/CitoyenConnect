@@ -33,6 +33,13 @@ public class DemandeConformiteServiceImpl implements DemandeConformiteService {
     }
 
     @Override
+    public DemandeConformite removeDemandeConformite(Long id) {
+        DemandeConformite demandeConformite = this.getDemandeConformite(id);
+        demandeConformiteRepository.delete(demandeConformite);
+        return demandeConformite;
+    }
+
+    @Override
     public List<DemandeConformite> getAllDemandesConformite() {
         return demandeConformiteRepository.findAll();
     }
