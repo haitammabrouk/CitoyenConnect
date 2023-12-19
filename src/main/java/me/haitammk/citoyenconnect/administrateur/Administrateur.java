@@ -4,8 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import me.haitammk.citoyenconnect.personne.Personne;
 
-@Table
-@Entity(name = "administrateur")
+@Table(name = "administrateur")
+@Entity
 public class Administrateur extends Personne {
     
 }
