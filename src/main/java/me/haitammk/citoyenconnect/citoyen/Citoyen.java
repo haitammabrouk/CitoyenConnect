@@ -11,7 +11,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import me.haitammk.citoyenconnect.demande.Demande;
 import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
 import me.haitammk.citoyenconnect.demandeEgalisation.DemandeEgalisation;
 import me.haitammk.citoyenconnect.personne.Personne;
