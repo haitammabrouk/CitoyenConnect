@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
+import me.haitammk.citoyenconnect.arrondisement.ArrondisementService;
+
 @RestController
 public class AdministrateurControler {
 
     @Autowired
     private AdministrateurService adminService;
+
+    @Autowired
+    private ArrondisementService arrondisementService;
 
     @GetMapping(value = "/admin/{cin}")
     public ResponseEntity<Administrateur> getAdministrateur(@PathVariable("cin") String cin){
@@ -26,6 +32,10 @@ public class AdministrateurControler {
 
     @PostMapping(value = "/admins")
     public ResponseEntity<HttpStatus> addAdministrateur(@RequestBody Map<String, Object> requestParams){
+
+        Long id_arrondisement = (Long)requestParams.get("arrondisement");
+        Arrondisement arrondisement = arrondisementService.getArrondisement(id_arrondisement);
+
        Administrateur admin = new Administrateur();
        admin.setNom((String)requestParams.get("nom"));
         admin.setPrenom((String)requestParams.get("prenom"));
@@ -43,11 +53,12 @@ public class AdministrateurControler {
         admin.setCarte_national((byte[])requestParams.get("carte_national"));
         admin.setPersonal_image((byte[])requestParams.get("personal_image"));
         admin.setSignature((byte[])requestParams.get("signature"));
+        admin.setArrondisement(arrondisement);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/admin/{cin}")
-    public ResponseEntity<HttpStatus> updateEtudiant(@PathVariable("cin") String cin, @RequestBody Map<String, String> requestParams){
+    public ResponseEntity<HttpStatus> updateAdministrateur(@PathVariable("cin") String cin, @RequestBody Map<String, String> requestParams){
         
         String password = requestParams.get("password");
         

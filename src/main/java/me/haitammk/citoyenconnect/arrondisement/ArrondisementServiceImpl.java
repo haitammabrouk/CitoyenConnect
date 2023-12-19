@@ -13,4 +13,9 @@ public class ArrondisementServiceImpl implements ArrondisementService {
     public Arrondisement addArrondisement(Arrondisement arrondisement) {
         return arrondisementRepository.save(arrondisement);
     }
+
+    @Override
+    public Arrondisement getArrondisement(Long id) {
+        return arrondisementRepository.findById(id).get();
+    }
 }
