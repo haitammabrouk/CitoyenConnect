@@ -10,7 +10,7 @@ public class AdministrateurServiceImpl implements AdministrateurService {
     private AdministrateurRepository administrateurRepository;
     
     @Override
-    public Administrateur getAdministrateur(String cin) {
-        return administrateurRepository.findById(cin).get();
+    public Administrateur addAdministrateur(Administrateur admin) {
+        return administrateurRepository.save(admin);
     }
 }
