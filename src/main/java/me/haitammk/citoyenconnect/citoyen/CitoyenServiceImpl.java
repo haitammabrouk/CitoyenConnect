@@ -1,6 +1,5 @@
 package me.haitammk.citoyenconnect.citoyen;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +24,22 @@ public class CitoyenServiceImpl implements CitoyenService {
     @Override
     public Citoyen updateCitoyen(Citoyen citoyen, String cin) {
         Citoyen ctyn = this.getCitoyen(cin);
-
-        ctyn.builder()
-        .nom(citoyen.getNom())
-        .prenom(citoyen.getPrenom())
-        .email(citoyen.getEmail())
-        .adresse(citoyen.getAdresse())
-        .lieuNaissance(citoyen.getLieuNaissance())
-        .dateNaissance(citoyen.getDateNaissance())
-        .sexe(citoyen.getSexe())
-        .cin_mere(citoyen.getCin_mere())
-        .cin_pere(citoyen.getCin_pere())
-        .nom_mere(citoyen.getNom_mere())
-        .nom_pere(citoyen.getNom_pere())
-        .prenom_mere(citoyen.getPrenom_mere())
-        .prenom_pere(citoyen.getPrenom_pere())
-        .nationalite(citoyen.getNationalite())
-        .carte_national(citoyen.getCarte_national())
-        .personal_image(citoyen.getPersonal_image())
-        .signature(citoyen.getSignature())
-        .build();
+        ctyn.setNom(citoyen.getNom());
+        ctyn.setPrenom(citoyen.getPrenom());
+        ctyn.setEmail(citoyen.getEmail());
+        ctyn.setAdresse(citoyen.getAdresse());
+        ctyn.setLieuNaissance(citoyen.getDateNaissance());
+        ctyn.setSexe(citoyen.getSexe());
+        ctyn.setCin_mere(citoyen.getCin_mere());
+        ctyn.setCin_pere(citoyen.getCin_pere());
+        ctyn.setNom_mere(citoyen.getNom_mere());
+        ctyn.setPrenom_mere(citoyen.getNom_mere());
+        ctyn.setNom_pere(citoyen.getNom_pere());
+        ctyn.setPrenom_pere(citoyen.getNom_pere());
+        ctyn.setNationalite(citoyen.getNationalite());
+        ctyn.setCarte_national(citoyen.getCarte_national());
+        ctyn.setPersonal_image(citoyen.getPersonal_image());
+        ctyn.setSignature(citoyen.getSignature());
         
         return citoyenRepository.save(ctyn);
     }

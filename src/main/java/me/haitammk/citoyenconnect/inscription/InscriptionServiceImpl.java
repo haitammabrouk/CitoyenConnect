@@ -25,26 +25,23 @@ public class InscriptionServiceImpl implements InscriptionService {
     @Override
     public Inscription updateInscription(Inscription inscription, Long id) {
         Inscription ins = this.getInscription(id);
-        ins.builder()
-        .nom(inscription.getNom())
-        .prenom(inscription.getPrenom())
-        .email(inscription.getEmail())
-        .adresse(inscription.getAdresse())
-        .lieuNaissance(inscription.getLieuNaissance())
-        .dateNaissance(inscription.getDateNaissance())
-        .sexe(inscription.getSexe())
-        .date(new Date())
-        .cin_mere(inscription.getCin_mere())
-        .cin_pere(inscription.getCin_pere())
-        .nom_mere(inscription.getNom_mere())
-        .nom_pere(inscription.getNom_pere())
-        .prenom_mere(inscription.getPrenom_mere())
-        .prenom_pere(inscription.getPrenom_pere())
-        .nationalite(inscription.getNationalite())
-        .carte_national(inscription.getCarte_national())
-        .personal_image(inscription.getPersonal_image())
-        .signature(inscription.getSignature())
-        .build();
+        ins.setNom(inscription.getNom());
+        ins.setPrenom(inscription.getPrenom());
+        ins.setEmail(inscription.getEmail());
+        ins.setAdresse(inscription.getAdresse());
+        ins.setLieuNaissance(inscription.getDateNaissance());
+        ins.setSexe(inscription.getSexe());
+        ins.setCin_mere(inscription.getCin_mere());
+        ins.setCin_pere(inscription.getCin_pere());
+        ins.setNom_mere(inscription.getNom_mere());
+        ins.setPrenom_mere(inscription.getNom_mere());
+        ins.setNom_pere(inscription.getNom_pere());
+        ins.setPrenom_pere(inscription.getNom_pere());
+        ins.setNationalite(inscription.getNationalite());
+        ins.setCarte_national(inscription.getCarte_national());
+        ins.setPersonal_image(inscription.getPersonal_image());
+        ins.setSignature(inscription.getSignature());
+        ins.setDate(new Date());
 
         return inscriptionRepository.save(ins);
     }
