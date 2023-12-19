@@ -13,10 +13,10 @@ import me.haitammk.citoyenconnect.personne.Personne;
 
 @Table(name = "administrateur")
 @Entity
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class Administrateur extends Personne {
     
     @OneToOne

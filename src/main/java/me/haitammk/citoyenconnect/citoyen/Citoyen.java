@@ -17,8 +17,8 @@ import me.haitammk.citoyenconnect.personne.Personne;
 
 @Entity
 @Table(name = "citoyen")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 public class Citoyen extends Personne {
