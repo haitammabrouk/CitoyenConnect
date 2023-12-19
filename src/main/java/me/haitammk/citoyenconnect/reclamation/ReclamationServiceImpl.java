@@ -22,15 +22,6 @@ public class ReclamationServiceImpl implements ReclamationService {
     }
 
     @Override
-    public Reclamation updateReclamation(Reclamation reclamation, Long id) {
-        Reclamation rec = this.getReclamation(id);
-        rec.setMessage(reclamation.getMessage());
-        rec.setEmail(reclamation.getEmail());
-        rec.setNom(reclamation.getNom());
-        return reclamationRepository.save(rec);
-    }
-
-    @Override
     public Reclamation removeReclamation(Long id) {
         Reclamation reclamation = this.getReclamation(id);
         reclamationRepository.delete(reclamation);

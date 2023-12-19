@@ -48,11 +48,11 @@ public class CitoyenController {
     }
 
     @PutMapping(value = "/citoyen/{cin}")
-    public ResponseEntity<HttpStatus> updateCitoyen(@PathVariable("cin") String cin, @RequestBody Map<String, String> requestParams){
-        Citoyen citoyen = citoyenService.getCitoyen(cin);
+    public ResponseEntity<Citoyen> updateCitoyen(@PathVariable("cin") String cin, @RequestBody Map<String, String> requestParams){
+        Citoyen citoyen = new Citoyen();
         String password = requestParams.get("password");
         citoyen.setPassword(password);
         citoyenService.updateCitoyen(citoyen, cin);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(citoyen, HttpStatus.OK);
     }
 }
