@@ -29,7 +29,7 @@ public class DemandeConformiteServiceImpl implements DemandeConformiteService {
         demande.setDate(new Date());
         demande.setStatus(status);
         demande.setRaison(raison);
-        return demande;
+        return demandeConformiteRepository.save(demande);
     }
 
     @Override

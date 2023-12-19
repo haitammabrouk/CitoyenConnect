@@ -29,7 +29,7 @@ public class DemandeEgalisationServiceImpl implements DemandeEgalisationService 
         demande.setDate(new Date());
         demande.setStatus(status);
         demande.setRaison(raison);
-        return demande;
+        return demandeEgalisationRepository.save(demande);
     }
 
     @Override
