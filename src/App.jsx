@@ -1,12 +1,18 @@
 import Home from './pages/Home'
-import FonctionnaireArronReclamations from './pages/FonctionnaireArronReclamations'
+import DemandeInscription from './pages/DemandeInscription'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
 
   return (
     <>
-    <Home />
+    <Router>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/demande-inscription' element={<DemandeInscription/>} />
+        </Routes>
+      </Router>
     </>
   )
 }
