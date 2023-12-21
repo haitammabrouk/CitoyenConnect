@@ -7,8 +7,8 @@ function DemandeInscription() {
         <Navbar />
         <div className="page-content font-cairo flex justify-center mt-10">
             <div className="form w-9/12 shadow-xl rounded-sm">
-                <h1 className="text-center text-3xl font-semibold text-[#336C4E] py-5">Demande D'inscription</h1>
-                <p className="text-sm font-semibold  pt-8 border-b border-b-[#A5AAA5] mx-10"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
+                <h1 className="text-center text-3xl font-semibold text-[#336C4E] ">Demande D'inscription</h1>
+                <p className="text-sm font-semibold  pt-5 border-b border-b-[#A5AAA5] mx-10"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
                 <form className="pt-8" action="" method="post">
                     <div className="parts flex flex-wrap justify-around">
                         <div className="first-part space-y-6">

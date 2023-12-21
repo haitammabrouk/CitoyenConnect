@@ -9,7 +9,7 @@ function InscriptionFinale() {
             <div className="form w-5/12 shadow-xl rounded-sm mb-20">
                 <h1 className="text-center text-3xl font-semibold text-[#336C4E] py-8">Inscription Finale</h1>
                 <p className="text-sm font-semibold  pb-4 mx-10">Connectez-vous à votre espace utilisateur avec le code que vous avez reçu dans votre e-mail</p>
-                <p className="text-sm font-semibold   border-b border-b-[#A5AAA5] mx-10"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
+                <p className="text-sm font-bold text-md text-[#424141]  border-b border-b-[#A5AAA5] mx-10"><span className="text-[#FF0000]">*</span>Tous le champs sont obligatoires</p>
                 <form className="pt-8" action="" method="post">
                     <div className="parts flex flex-wrap justify-around">
                         <div className="first-part space-y-6">

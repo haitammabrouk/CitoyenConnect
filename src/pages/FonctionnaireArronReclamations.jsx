@@ -9,7 +9,7 @@ import ReclamationCard from "../components/ReclamationCard"
 import ReclamationCardDetails from "../components/ReclamationCardDetails"
 
 
-function CitoyenDemandes() {
+function FonctionnaireArronReclamations() {
   return (
     <div className="w-full font-cairo">
         <FonctionnaireArronNavbar />
@@ -34,4 +34,4 @@ function CitoyenDemandes() {
   )
 }
 
-export default CitoyenDemandes
+export default FonctionnaireArronReclamations

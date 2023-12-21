@@ -9,6 +9,7 @@ export default {
         'custom' : '560px',
         'card' : '340px',
         'text' : '650px',
+        'insc' : '700px'
       }
       ,fontFamily: {
         cairo: ['Cairo', 'sans-serif'],
