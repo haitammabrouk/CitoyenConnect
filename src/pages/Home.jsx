@@ -22,7 +22,6 @@ function Home() {
                     </div>
                     <div className="links flex justify-center space-x-6 items-center py-4">
                         <Link to = '/demande-inscription'><button className="text-[#ffffff] bg-[#336C4E] rounded-xl px-3 py-2">Demande D'inscription</button></Link>
-                        <Link to="/"><button className="border-2 border-[#336C4E] text-[#336C4E] rounded-xl px-3 py-2">Suivre Votre Demande</button></Link>
                     </div>
                 </div>
             </div>
