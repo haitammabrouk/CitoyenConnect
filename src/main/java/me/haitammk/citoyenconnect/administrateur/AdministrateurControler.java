@@ -54,6 +54,7 @@ public class AdministrateurControler {
         admin.setPersonal_image((byte[])requestParams.get("personal_image"));
         admin.setSignature((byte[])requestParams.get("signature"));
         admin.setArrondisement(arrondisement);
+        adminService.addAdministrateur(admin);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

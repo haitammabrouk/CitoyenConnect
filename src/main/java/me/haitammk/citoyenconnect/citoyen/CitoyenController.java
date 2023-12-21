@@ -44,6 +44,7 @@ public class CitoyenController {
         citoyen.setCarte_national((byte[])requestParams.get("carte_national"));
         citoyen.setPersonal_image((byte[])requestParams.get("personal_image"));
         citoyen.setSignature((byte[])requestParams.get("signature"));
+        citoyenService.addCitoyen(citoyen);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

@@ -43,7 +43,7 @@ public class DemandeEgalisationControler {
         demandeEgalisation.setStatus((String)requestParams.get("status"));
         demandeEgalisation.setCitoyen(citoyen);
         demandeEgalisation.setDate(new Date());
-        
+        demandeEgalisationService.addDemandeEgalisation(demandeEgalisation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

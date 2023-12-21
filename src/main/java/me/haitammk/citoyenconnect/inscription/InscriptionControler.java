@@ -46,6 +46,7 @@ public class InscriptionControler {
         inscription.setPersonal_image((byte[])requestParams.get("personal_image"));
         inscription.setSignature((byte[])requestParams.get("signature"));
         inscription.setDate(new Date());
+        inscriptionService.addInscription(inscription);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

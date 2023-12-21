@@ -43,7 +43,7 @@ public class DemandeConformiteControler {
         demandeConformite.setStatus((String)requestParams.get("status"));
         demandeConformite.setCitoyen(citoyen);
         demandeConformite.setDate(new Date());
-        
+        demandeConformiteService.addDemandeConformite(demandeConformite);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
