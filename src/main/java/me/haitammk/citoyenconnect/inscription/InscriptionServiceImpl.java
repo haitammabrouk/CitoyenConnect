@@ -1,16 +1,25 @@
 package me.haitammk.citoyenconnect.inscription;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class InscriptionServiceImpl implements InscriptionService {
     
     @Autowired
     private InscriptionRepository inscriptionRepository;
+
+    public void saveImageData(Inscription inscription, MultipartFile personalImage, MultipartFile carteNational) throws IOException {
+        inscription.setPersonal_image(personalImage.getBytes());
+        inscription.setCarte_national(carteNational.getBytes());
+
+        inscriptionRepository.save(inscription);
+    }
 
     @Override
     public Inscription addInscription(Inscription inscription) {
@@ -28,7 +37,6 @@ public class InscriptionServiceImpl implements InscriptionService {
         ins.setNom(inscription.getNom());
         ins.setPrenom(inscription.getPrenom());
         ins.setEmail(inscription.getEmail());
-        ins.setAdresse(inscription.getAdresse());
         ins.setLieuNaissance(inscription.getDateNaissance());
         ins.setSexe(inscription.getSexe());
         ins.setCin_mere(inscription.getCin_mere());
