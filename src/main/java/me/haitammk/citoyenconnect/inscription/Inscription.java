@@ -74,6 +74,9 @@ public class Inscription {
     @Column(name = "adresse")
     private String adresse;
 
+    @Column(name = "raison")
+    private String raison;
+
     
     @Column(name = "lieu_naissance")
     private String lieuNaissance;
