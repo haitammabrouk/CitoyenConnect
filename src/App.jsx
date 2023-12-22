@@ -7,6 +7,8 @@ import Reclamation from './pages/Reclamation';
 import CitoyenDemandes from './pages/CitoyenDemandes';
 import DemandeInscription from './pages/DemandeInscription';
 import FonctionnaireArronReclamations from './pages/FonctionnaireArronReclamations'
+import InscriptionFinale from './pages/InscriptionFinale';
+import CreationMdp from './pages/CreationMdp'
 
 
 
@@ -25,6 +27,8 @@ function App() {
           <Route path='/fonctionnaire-reclamations' element={<FonctionnaireArronReclamations/>} />
           <Route path='/citoyen-demandes' element={<CitoyenDemandes/>} />
           <Route path='/demande-inscription' element={<DemandeInscription/>} />
+          <Route path='/inscription-finale' element={<InscriptionFinale/>} />
+          <Route path='/nouveau-mdp' element={<CreationMdp/>} />          
         </Routes>
       </Router>
     </>

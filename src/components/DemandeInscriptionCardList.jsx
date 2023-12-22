@@ -13,7 +13,7 @@ function DemandeInscriptionCardList({onSelectInscription}) {
             setInscriptions(response.data);
             console.log(response.data);
         }).catch((error) => {
-            console.log("error fetching rapports informations ");
+            console.log("error fetching inscriptions ");
         });
       }, []);
 
