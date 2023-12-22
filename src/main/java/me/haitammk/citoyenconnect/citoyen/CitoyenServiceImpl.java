@@ -64,6 +64,10 @@ public class CitoyenServiceImpl implements CitoyenService {
         return citoyen;
     }
 
+    public Citoyen getCitoyenByCinAndCodeConf(String cin, String code_conf){
+        return citoyenRepository.findByCode_confAndCin(cin, code_conf);
+    }
+
     @Override
     public List<Citoyen> getAllCitoyens() {
         return (List<Citoyen>) citoyenRepository.findAll();

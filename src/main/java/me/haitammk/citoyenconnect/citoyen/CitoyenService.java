@@ -12,5 +12,7 @@ public interface CitoyenService {
 
     List<Citoyen> getAllCitoyens();
 
+    Citoyen getCitoyenByCinAndCodeConf(String cin, String code_conf);
+
     Citoyen removeCitoyen(String cin);
 }
