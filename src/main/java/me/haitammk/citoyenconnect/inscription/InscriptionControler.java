@@ -45,7 +45,7 @@ public class InscriptionControler {
     }
 
     @PostMapping(value = "/inscription-accepter")
-    public ResponseEntity<HttpStatus> processForgotPasswordForm(@RequestParam Map<String, String> requestParams){
+    public ResponseEntity<HttpStatus> accepterInscription(@RequestParam Map<String, String> requestParams){
      
         String id = requestParams.get("id");
 
