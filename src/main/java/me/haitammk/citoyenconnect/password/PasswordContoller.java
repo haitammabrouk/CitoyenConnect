@@ -12,13 +12,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.citoyen.CitoyenService;
+import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class PasswordContoller {
 
     @Autowired
-    private CitoyenService citoyenService;
+    private CitoyenServiceImpl citoyenService;
+
+    @PostMapping(value="/creation-mdp")
+    public ResponseEntity<HttpStatus> creationMotDePasse(@RequestParam Map<String, String> requestParams ){
+        
+        String cin = requestParams.get("cin");
+        String mdp = requestParams.get("mdp");
+        String mdpv = requestParams.get("mdpv");
+        
+        Citoyen citoyen = citoyenService.getCitoyen(cin);
+
+        if(!mdp.equals(mdpv)){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else{
+            citoyen.setPassword(mdp); 
+            citoyenService.saveCitoyen(citoyen);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
 
     @PostMapping(value="/inscription-finale")
     public ResponseEntity<HttpStatus> inscriptionFinale(@RequestParam Map<String, String> requestParams ){

@@ -21,6 +21,10 @@ public class CitoyenServiceImpl implements CitoyenService {
         return citoyenRepository.findById(cin).get();
     }
 
+    public Citoyen saveCitoyen(Citoyen citoyen){
+        return citoyenRepository.save(citoyen);
+    }
+
     @Override
     public Citoyen addCitoyen(Citoyen citoyen) {
         return citoyenRepository.save(citoyen);
