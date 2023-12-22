@@ -1,16 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function DemandeInscriptionCardDetails() {
+// eslint-disable-next-line react/prop-types
+function DemandeInscriptionCardDetails({ inscription, nom, id, date }) {
+
+    console.log("select insc " +inscription)
+
   return (
     <div className='font-cairo border border-[#727572] w-insc rounded-md pb-2'>
         <div className="content space-y-2 pb-4 px-4">
                 <h1 className='text-xl font-semibold pt-2 '>Demande D'Inscription</h1>
-                <p ><span className='font-semibold'>ID</span> : AX12</p>
-                <p ><span className='font-semibold text-[#636363]'>a été soumis le </span> : <span className='font-semibold'>Mabrouk</span>
-                <span className='font-semibold text-[#636363] pl-2'>, le </span> <span className='font-semibold'>07/09/2023</span></p>
+                <p ><span className='font-semibold'>ID</span> : {id}</p>
+                <p ><span className='font-semibold text-[#636363]'>a été soumis par </span> : <span className='font-semibold'>{nom}</span>
+                <span className='font-semibold text-[#636363] pl-2'>, le </span> <span className='font-semibold'>{date}</span></p>
         </div>
         <div className="infos px-4">
-            <p className="text-sm underline text-[#007ad9]"><a href="#">Vérifier les Informations Personnelles du Citoyen(lien)</a></p>
+            <p className="text-sm underline text-[#007ad9]"><Link to={`/fonctionnaire-demandes-inscription-details/${id}`}>
+            Vérifier les Informations Personnelles du Citoyen(lien)
+          </Link></p>
             <div className="infos-content space-y-6 pb-3">
                 <div className="message pt-3">
                     <ul className='text-md text-[#636363] font-semibold  flex justify-around space-x-3'>
