@@ -1,5 +1,7 @@
 package me.haitammk.citoyenconnect.reclamation;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,9 @@ public class Reclamation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reclamation")
     private Long id;
+
+    @Column(name = "date")
+    private Date date;
     
     @NotBlank
     @Column(name = "nom")
