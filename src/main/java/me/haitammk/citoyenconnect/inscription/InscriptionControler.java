@@ -44,6 +44,41 @@ public class InscriptionControler {
         return new ResponseEntity<>(inscription,  HttpStatus.OK);
     }
 
+    @PostMapping(value = "/inscription-rejeter")
+    public ResponseEntity<HttpStatus> rejeterInscription(@RequestParam Map<String, String> requestParams){
+     
+        String id = requestParams.get("id");
+
+        String raison = requestParams.get("raison");
+
+        Long longId = Long.parseLong(id);
+        Inscription ins = inscriptionService.getInscription(longId);
+        
+
+        if(ins == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else{
+            System.out.println("Inscription found");
+            
+            inscriptionService.updateRaisonInscription(ins, raison);
+
+            SimpleMailMessage mail = new SimpleMailMessage();
+            mail.setTo(ins.getEmail());
+            mail.setSubject("Rejet Demande d'inscription");
+            mail.setText("Cher Citoyen,\r\n" + //
+                    "\r\n" + //
+                    "je suis desole de vous informe que votre demande d'inscription a ete refuse or :\r\n" + //
+                    raison+
+                    "\r\n" + //
+                    "CitoyenConnect");
+
+            emailService.sendEmail(mail);
+            System.out.println("email has been sent succefully");
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
+
     @PostMapping(value = "/inscription-accepter")
     public ResponseEntity<HttpStatus> accepterInscription(@RequestParam Map<String, String> requestParams){
      

@@ -31,6 +31,11 @@ public class InscriptionServiceImpl implements InscriptionService {
         return inscriptionRepository.findById(id).get();
     }
 
+    public Inscription updateRaisonInscription(Inscription inscription, String raison){
+        inscription.setRaison(raison);
+        return inscriptionRepository.save(inscription);
+    }
+
     @Override
     public Inscription updateInscription(Inscription inscription, Long id) {
         Inscription ins = this.getInscription(id);

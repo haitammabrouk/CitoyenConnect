@@ -12,5 +12,7 @@ public interface InscriptionService {
 
     Inscription removeInscription(Long id);
 
+    Inscription updateRaisonInscription(Inscription inscription, String raison);
+
     List<Inscription> getAllInscriptions();
 }
