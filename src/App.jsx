@@ -1,7 +1,7 @@
 import Home from './pages/Home'
-import DemandeInscription from './pages/DemandeInscription'
 import InscriptionEnCours from './pages/InscriptionEnCours'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Reclamation from './pages/Reclamation';
 
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <>
     <Router>
         <Routes>
+          <Route path='/reclamations' element={<Reclamation/>} />
           <Route path='/' element={<Home/>} />
-          <Route path='/demande-inscription' element={<DemandeInscription/>} />
           <Route path='/inscription-en-cours' element={<InscriptionEnCours/>} />
         </Routes>
       </Router>
