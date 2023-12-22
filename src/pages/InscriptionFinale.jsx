@@ -3,6 +3,7 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import axios from "axios";
 import CreationMdp from "./CreationMdp";
+import { useSession } from "../../SessionContext";
 
 function InscriptionFinale() {
 
@@ -11,6 +12,8 @@ function InscriptionFinale() {
 
     const [check, setCheck] = useState(false);
     const [checkError, setCheckError] = useState(false);
+
+    const { setSessionId } = useSession();
 
     const handleCinChange = (e) => {
         setCin(e.target.value);
@@ -32,6 +35,7 @@ function InscriptionFinale() {
             console.log("success");
             setCheck(true);
             setCheckError(false);
+            setSessionId(cin);
             
         }).catch((error) => {
             setCheck(false);
@@ -62,13 +66,6 @@ function InscriptionFinale() {
                             </div>
                         </div>
                     </div>
-                    {
-                    check && (
-                        <div>
-                            <p className=' pt-2 text-[#4a7846] font-bold text-center text-sm'> Le CIN et le code sont valides</p>
-                        </div>
-                    )
-                }
                 {
                     checkError && (
                         <div className=''>

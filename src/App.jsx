@@ -9,6 +9,7 @@ import DemandeInscription from './pages/DemandeInscription';
 import FonctionnaireArronReclamations from './pages/FonctionnaireArronReclamations'
 import InscriptionFinale from './pages/InscriptionFinale';
 import CreationMdp from './pages/CreationMdp'
+import { SessionProvider } from '../SessionContext';
 
 
 
@@ -16,6 +17,7 @@ function App() {
   
 
   return (
+    <SessionProvider>
     <>
     <Router>
         <Routes>
@@ -32,6 +34,7 @@ function App() {
         </Routes>
       </Router>
     </>
+    </SessionProvider>
   )
 }
 
