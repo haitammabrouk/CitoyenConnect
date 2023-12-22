@@ -1,9 +1,14 @@
 package me.haitammk.citoyenconnect.citoyen;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import me.haitammk.citoyenconnect.inscription.Inscription;
 
 @Service
 public class CitoyenServiceImpl implements CitoyenService {
@@ -19,6 +24,14 @@ public class CitoyenServiceImpl implements CitoyenService {
     @Override
     public Citoyen addCitoyen(Citoyen citoyen) {
         return citoyenRepository.save(citoyen);
+    }
+
+    public String generateCitoyenToken(){
+        return UUID.randomUUID().toString();
+    }
+
+    public String generateCitoyenCodeConf(){
+        return UUID.randomUUID().toString();
     }
 
     @Override

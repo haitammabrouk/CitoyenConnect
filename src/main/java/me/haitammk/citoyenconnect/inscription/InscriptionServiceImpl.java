@@ -42,6 +42,7 @@ public class InscriptionServiceImpl implements InscriptionService {
         ins.setCin_mere(inscription.getCin_mere());
         ins.setCin_pere(inscription.getCin_pere());
         ins.setNom_mere(inscription.getNom_mere());
+        ins.setAdresse(inscription.getAdresse());
         ins.setPrenom_mere(inscription.getNom_mere());
         ins.setNom_pere(inscription.getNom_pere());
         ins.setPrenom_pere(inscription.getNom_pere());
