@@ -24,6 +24,7 @@ function DemandeInscription() {
     const [personalImageFile, setPersonalImageFile] = useState(null);
     const [carteNationalFile, setCarteNationalFile] = useState(null);
     const [phone, setPhone] = useState(null);
+    const [adresse, setAdresse] = useState('');
 
     const [check, setCheck] = useState(false);
 
@@ -40,6 +41,10 @@ function DemandeInscription() {
 
     const handlePrenomChange = (e) => {
         setPrenom(e.target.value);
+    }
+
+    const handleAdresseChange = (e) => {
+        setAdresse(e.target.value);
     }
 
     const handleLieuChange = (e) => {
@@ -125,6 +130,7 @@ function DemandeInscription() {
         formData.append('prenom_pere', prenomPere);
         formData.append('cin_mere', cinMere);
         formData.append('cin_pere', cinPere);
+        formData.append('adresse', adresse);
 
         formData.append('image', personalImageFile);
         formData.append('carte_national', carteNationalFile);
@@ -177,6 +183,10 @@ function DemandeInscription() {
                                 <div className="email">
                                     <label className="text-xs font-semibold block pb-3" htmlFor="email">Email <span className="text-[#FF0000]">*</span></label>
                                     <input value={email} onChange={handleEmailChange} className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="email" name="email" required />
+                                </div>
+                                <div className="adrese">
+                                    <label className="text-xs font-semibold block pb-3" htmlFor="adresse">Adresse <span className="text-[#FF0000]">*</span></label>
+                                    <input value={adresse} onChange={handleAdresseChange} className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="adresse" name="adresse" required />
                                 </div>
                                 <div className="date">
                                     <label className="text-xs font-semibold block pb-3" htmlFor="date">Date de naisance <span className="text-[#FF0000]">*</span></label>

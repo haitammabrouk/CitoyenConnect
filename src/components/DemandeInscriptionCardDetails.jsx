@@ -1,10 +1,23 @@
-import React from 'react'
+import axios from 'axios';
 import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line react/prop-types
 function DemandeInscriptionCardDetails({ inscription, nom, id, date }) {
 
-    console.log("select insc " +inscription)
+    const setAccepter = (e) => {
+        e.preventDefault()
+        axios.post(`http://localhost:8080/inscription-accepter`, null, {
+        params: {
+            id: id
+        }
+        })
+        .then((response) => {
+            console.log("rapport est accepte");
+            
+        }).catch((error) => {
+            console.log("rapport n'est pas accepte");
+        })
+    }
 
   return (
     <div className='font-cairo border border-[#727572] w-insc rounded-md pb-2'>
@@ -22,14 +35,12 @@ function DemandeInscriptionCardDetails({ inscription, nom, id, date }) {
                 <div className="message pt-3">
                     <ul className='text-md text-[#636363] font-semibold  flex justify-around space-x-3'>
                         <li className='border-r border-r-[#000000]'><p>Pour accepter la demande, sélectionnez 'Accepter la Demande'</p>
-                        <form action="" method='post'>
-                        <button type='submit' className='py-2 px-4 mt-2 bg-[#58815c] text-[#ffffff]'>Accepter La Demande</button>
-                        </form>
+                        <button onClick={setAccepter} className='py-2 px-4 mt-2 bg-[#58815c] text-[#ffffff]'>Accepter La Demande</button>
                         </li>
                         <li className='pl-2'><p>Pour rejeter la demande, spécifiez la raison du rejet et sélectionnez 'Rejeter la Demande'</p>
                         <form action="" method='post'>
                             <textarea className='h-44 w-full mt-4 outline-none border border-[#636363] text-[#636363] px-2 py-2 rounded-lg' name="raison" id="raison" cols="30" rows="10" placeholder='la raison du rejet'></textarea>
-                            <button type='submit' className='py-2 px-4 mt-2 bg-[#86433b] text-[#ffffff]'>Rejeter La Demande</button>
+                            <button className='py-2 px-4 mt-2 bg-[#86433b] text-[#ffffff]'>Rejeter La Demande</button>
                         </form>
                         </li>
                     </ul>

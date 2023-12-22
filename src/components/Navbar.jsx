@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png'
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
   return (
@@ -20,8 +21,8 @@ export default function Navbar() {
         <div className="lower pt-3">
             <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
                 <li><a href="#">Accueil</a></li>
+                <li><Link to = '/reclamations'>Réclamations</Link></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Informations Pratiques</a></li>
                 <li><a href="#">Connexion</a></li>
             </ul>
         </div>
