@@ -6,8 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,16 +26,13 @@ public class Reclamation {
     @Column(name = "id_reclamation")
     private Long id;
     
-    @NotBlank
     @Column(name = "nom")
     private String nom;
 
-    @NotBlank
-    @Email
+   
     @Column(name = "email")
     private String email;
 
-    @NotBlank
     @Column(name = "message")
     private String message;
 }
