@@ -3,10 +3,22 @@ import Navbar from '../components/Navbar'
 import FonctionnaireArronNavbar from '../components/FonctionnaireArronNavbar'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useSession } from '../../SessionContext';
+import Login from './Login';
 
 function FonctionnaireDemandeInscDetails() {
 
     const [inscription, setInscription] = useState();
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
 
 
     const { id } = useParams();
@@ -22,7 +34,8 @@ function FonctionnaireDemandeInscDetails() {
     }, [id]);
 
   return (
-    <div className="w-full">
+    checkId(sessionId) ? <Login /> : (
+        <div className="w-full">
             <FonctionnaireArronNavbar />
             <div className="page-content font-cairo flex justify-center mt-10">
                 <div className="form w-9/12 shadow-xl rounded-sm pb-10">
@@ -116,6 +129,7 @@ function FonctionnaireDemandeInscDetails() {
                 </div>
             </div>
         </div>
+    )
   )
 }
 

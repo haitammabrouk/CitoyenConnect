@@ -1,10 +1,24 @@
 import React from 'react'
 import FonctionnaireArronNavbar from '../components/FonctionnaireArronNavbar'
 import StatCard from '../components/StatCard'
+import { useSession } from '../../SessionContext';
+import Login from './Login';
 
 function FonctionnaireArronHome() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
+
   return (
-    <div className='w-full font-cairo'>
+    checkId(sessionId) ? <Login /> : (
+        <div className='w-full font-cairo'>
         <FonctionnaireArronNavbar />
         <div className="page min-h-screen flex justify-center px-6 pt-6">
             <div className="page-content bg-[#efeff5] px-10 py-10">
@@ -31,6 +45,7 @@ function FonctionnaireArronHome() {
             </div>
         </div>
     </div>
+    )
   )
 }
 

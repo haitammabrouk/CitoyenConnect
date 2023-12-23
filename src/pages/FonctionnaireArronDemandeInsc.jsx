@@ -12,9 +12,21 @@ import DemandeInscriptionCardDetails from "../components/DemandeInscriptionCardD
 import { useEffect, useState } from "react"
 import axios from "axios"
 import DemandeInscriptionCardList from "../components/DemandeInscriptionCardList"
+import { useSession } from "../../SessionContext"
+import Login from "./Login"
 
 
 function FonctionnaireArronDemandeInsc() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
 
     const [selectedInscription, setSelectedInscription] = useState(null);
     const [date, setDate] = useState('');
@@ -30,7 +42,8 @@ function FonctionnaireArronDemandeInsc() {
     };
 
   return (
-    <div className="w-full font-cairo">
+    checkId(sessionId) ? <Login /> : (
+        <div className="w-full font-cairo">
         <FonctionnaireArronNavbar />
         <div className="sections">
             <div className="sections-content flex justify-center flex-wrap items-baseline pt-10">
@@ -51,6 +64,7 @@ function FonctionnaireArronDemandeInsc() {
             </div>
         </div>
     </div>
+    )
   )
 }
 

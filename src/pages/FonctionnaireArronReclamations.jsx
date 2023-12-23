@@ -8,6 +8,8 @@ import FonctionnaireArronNavbar from '../components/FonctionnaireArronNavbar'
 import ReclamationCardList from "../components/ReclamationCardList"
 import ReclamationCardDetails from "../components/ReclamationCardDetails"
 import { useState } from "react"
+import { useSession } from "../../SessionContext"
+import Login from "./Login"
 
 
 function FonctionnaireArronReclamations() {
@@ -17,6 +19,16 @@ function FonctionnaireArronReclamations() {
     const [id, setId] = useState('');
     const [nom, setNom] = useState('');
     const [message, setMessage] = useState('');
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
 
     const handleSelectReclamation = (reclamation, id, date, nom, message) => {
         setSelectedReclamation(reclamation);
@@ -28,7 +40,8 @@ function FonctionnaireArronReclamations() {
     };
 
   return (
-    <div className="w-full font-cairo">
+    checkId(sessionId) ? <Login /> : (
+        <div className="w-full font-cairo">
         <FonctionnaireArronNavbar />
         <div className="sections">
             <div className="sections-content flex flex-wrap items-baseline justify-center items-center pt-10">
@@ -49,6 +62,7 @@ function FonctionnaireArronReclamations() {
             </div>
         </div>
     </div>
+    )
   )
 }
 

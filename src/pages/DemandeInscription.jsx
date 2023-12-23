@@ -203,6 +203,7 @@ function DemandeInscription() {
                                 <div className="situation">
                                     <label className="text-xs font-semibold block pb-3" htmlFor="situation">Situation familiale <span className="text-[#FF0000]">*</span></label>
                                     <select value={situation} onChange={handleSituationChange}  className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" id="situation" name="situation">
+                                        <option value=""></option>
                                         <option value="celibataire">Célibataire</option>
                                         <option value="marie">Marié</option>
                                     </select>

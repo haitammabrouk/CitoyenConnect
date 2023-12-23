@@ -1,10 +1,24 @@
 import Footer from '../components/Footer'
 import CitoyenNavbar from '../components/CitoyenNavbar'
 import CitoyenOptions from '../components/CitoyenOptions'
+import { useSession } from '../../SessionContext';
+import Login from './Login';
 
 function CitoyenHome() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
+
   return (
-    <div className='w-full font-cairo'>
+    checkId(sessionId) ? <Login /> : (
+        <div className='w-full font-cairo'>
         <CitoyenNavbar />
         <div className="page-content min-h-screen">
             <div className="sections-content flex justify-evenly pt-6">
@@ -80,6 +94,7 @@ function CitoyenHome() {
         </div>
         <Footer />
     </div>
+    )
   )
 }
 

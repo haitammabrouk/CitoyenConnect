@@ -1,12 +1,15 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../assets/logo.png'
 import { Link } from "react-router-dom"
+import { faHouse, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
   return (
     <div className="w-full font-cairo">
         <div className="upper flex items-center flex-wrap ">
             <div className="logo w-80 pl-5">
-                <img src={logo} alt="" />
+                <Link to='/'><img src={logo} alt="" /></Link>
+                
             </div>
             <div className='text-2xl text-center '>
                 <h1>
@@ -20,10 +23,9 @@ export default function Navbar() {
         </div>
         <div className="lower pt-3">
             <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
-                <li><a href="#">Accueil</a></li>
-                <li><Link to = '/reclamations'>Réclamations</Link></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Connexion</a></li>
+                <li><Link to='/'><span className='pr-2'><FontAwesomeIcon icon={faHouse} /></span><span>Accueil</span></Link></li>
+                <li><Link to = '/reclamations'><span className='pr-2'><FontAwesomeIcon icon={faHouse} /></span><span>Réclamations</span></Link></li>
+                <li><Link to = '/login'><span className='pr-2'><FontAwesomeIcon icon={faUser} /></span><span>Connexion</span></Link></li>
             </ul>
         </div>
     </div>

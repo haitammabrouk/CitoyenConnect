@@ -1,7 +1,28 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import '../styles/citoyennavbar.css'
+import { faCircleQuestion, faHouse, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSession } from '../../SessionContext'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function CitoyenNavbar() {
+
+    const {sessionId} = useSession();
+
+
+    const [citoyen, setCitoyen] = useState();
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/citoyen/${sessionId}`)
+        .then((response) => {
+            setCitoyen(response.data);
+        }).catch((error) => {
+            console.log("error fetching citoyen informations ", error);
+        });
+    });
+
   return (
     <div className='w-full font-cairo'>
         <div className="upper flex items-center flex-wrap ">
@@ -17,13 +38,18 @@ function CitoyenNavbar() {
         </div>
         <div className="lower pt-3">
             <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Informations Pratiques</a></li>
+                <li><Link to='/citoyen-home'><span className='pr-2'><FontAwesomeIcon icon={faHouse} /></span><span>Accueil</span></Link></li>
+                <li><Link to='/citoyen-reclamations'><span className='pr-2'><FontAwesomeIcon icon={faCircleQuestion} /></span><span>Reclamations</span></Link></li>
                 <li className='dropdown'>
-                    <a className='dropbtn' href="#">Connexion</a>
+                    <a className='dropbtn' href="#"><span className='pr-2'><FontAwesomeIcon icon={faUser} /></span>
+                        {
+                            citoyen && (
+                                <span>{citoyen.nom} {citoyen.prenom} </span>
+                            )
+                        }
+                        </a>
                     <div className="dropdown-content">
-                        <a href="#">Consulter votre profil</a>
+                        <Link to='/citoyen-profile'>Consulter votre profil</Link>
                         <a href="#">Vos Demandes</a>
                         <a href="#">Deconnexion</a>
                     </div>

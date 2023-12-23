@@ -2,6 +2,7 @@ import { useState } from 'react';
 import logo from '../assets/logo.png'
 import '../styles/citoyennavbar.css'
 import '../styles/fonctionnairearrondnavbar.css'
+import { Link } from 'react-router-dom';
 
 function CitoyenNavbar() {
 
@@ -21,7 +22,7 @@ function CitoyenNavbar() {
                 <a href='#'  className='flex items-center'> <span className='pl-4 pr-2'></span><p className='text-sm pl-3'>Accueil</p>   </a >
               </li>
               <li>
-                <a href='#' className='flex items-center' > <span className='pl-4 pr-2' ></span> <p className='text-sm pl-3'><span className='pr-1'>Demandes</span> D'inscription</p>  </a >
+                <Link to='/fonctionnaire-demandes-inscription' className='flex items-center' > <span className='pl-4 pr-2' ></span> <p className='text-sm pl-3'><span className='pr-1'>Demandes</span> D'inscription</p>  </Link >
               </li>
               <li>
                 <a href='#' className='flex items-center' > <span className='pl-4 pr-2'></span> <p className='text-sm pl-3'>Demandes D'egalisation</p> </a>
@@ -33,10 +34,10 @@ function CitoyenNavbar() {
                 <a href='#' className='flex items-center' > <span className='pl-5 pr-2'></span><p className='text-sm pl-3'> Actes De Naissance</p> </a>
               </li>
               <li>
-                <a href='#' className='flex items-center' > <span className='pl-5 pr-2'></span><p className='text-sm pl-3'> Reclamations</p> </a>
+                <Link to='/fonctionnaire-reclamations' className='flex items-center' > <span className='pl-5 pr-2'></span><p className='text-sm pl-3'> Reclamations</p> </Link>
               </li>
               <li>
-                <a href='#' className='flex items-center' > <span className='pl-5 pr-2'></span><p className='text-sm pl-3'> Votre Profil</p> </a>
+                <Link to = '/admin-profile' className='flex items-center' > <span className='pl-5 pr-2'></span><p className='text-sm pl-3'> Votre Profil</p> </Link>
               </li>
               <li>
                 <a href='#' className='flex items-center'><span className='pl-5 pr-2'></span><p className='text-sm pl-3'>Deconnexion</p></a>
@@ -46,9 +47,12 @@ function CitoyenNavbar() {
         </div>
       </aside>
         <div className="upper flex justify-around items-center ">
+          <Link to='/admin-home'>
             <div className="logo w-72 ">
                 <img src={logo} alt="" />
             </div>
+          </Link>
+
             <div className='text-2xl text-center '>
                 <h1>
                     Plateforme Numerique de Gestion des Documents Administratives
