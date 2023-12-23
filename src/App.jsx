@@ -20,6 +20,9 @@ import FonctionnaireConsultationProfil from './pages/FonctionnaireConsultationPr
 import ConsultationProfil from './pages/ConsultationProfil';
 import CitoyenReclamation from './pages/CitoyenReclamation';
 import ModificationMdpFonctionnaire from './pages/ModificationMdpFonctionnaire'
+import InsertPdf from './pages/InsertPdf';
+import DeclarationHonneurTemplate from './pages/DeclarationHonneurTemplate'
+import PdfToJspdf from './pages/PdfToJspdf';
 
 
 
@@ -50,7 +53,10 @@ function App() {
           <Route path='/citoyen-profile' element = {<ConsultationProfil />} />
           <Route path='/citoyen-reclamations' element = {<CitoyenReclamation />} /> 
           <Route path='/creation-mdp' element = {<CreationMdp />} />
+          <Route path='/insert-pdf' element = {<InsertPdf />} />
+          <Route path='/pdf-to-jspdf' element = {<PdfToJspdf />} />
           <Route path='/modification-mdp-admin' element = {<ModificationMdpFonctionnaire />} />
+          <Route path='/declaration-honneur' element = {<DeclarationHonneurTemplate/>} />
         </Routes>
       </Router>
     </>
