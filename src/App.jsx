@@ -10,6 +10,9 @@ import FonctionnaireArronReclamations from './pages/FonctionnaireArronReclamatio
 import InscriptionFinale from './pages/InscriptionFinale';
 import CreationMdp from './pages/CreationMdp'
 import { SessionProvider } from '../SessionContext';
+import EnterEmail from './pages/EnterEmail';
+import EmailSent from './pages/EmailSent';
+import ResetMdp from './pages/ResetMdp';
 
 
 
@@ -30,7 +33,10 @@ function App() {
           <Route path='/citoyen-demandes' element={<CitoyenDemandes/>} />
           <Route path='/demande-inscription' element={<DemandeInscription/>} />
           <Route path='/inscription-finale' element={<InscriptionFinale/>} />
-          <Route path='/nouveau-mdp' element={<CreationMdp/>} />          
+          <Route path='/nouveau-mdp' element={<CreationMdp/>} /> 
+          <Route path='/entrer-cin' element={<EnterEmail />} />
+          <Route path='/email-sent' element={<EmailSent />} />   
+          <Route path='/reseting' element = {<ResetMdp />} />        
         </Routes>
       </Router>
     </>

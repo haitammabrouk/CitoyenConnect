@@ -10,7 +10,7 @@ function EmailSent() {
         <Navbar />
         <div className="min-h-screen">
         <div className="content flex justify-center mt-32 ">
-            <div className="card bg-[#A1BEAE] flex  justify-around px-5 py-5 w-2/6">
+            <div className="card bg-[#ACD2CC] flex  justify-around px-5 py-5 w-2/6">
                 <div className="first-part">
                     <FontAwesomeIcon size="3x" icon={faCircleCheck} />
                 </div>
