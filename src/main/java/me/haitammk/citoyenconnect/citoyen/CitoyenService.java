@@ -15,4 +15,6 @@ public interface CitoyenService {
     Citoyen getCitoyenByCinAndCodeConf(String cin, String code_conf);
 
     Citoyen removeCitoyen(String cin);
+
+    boolean citoyenAuthenticate(String cin, String password);
 }
