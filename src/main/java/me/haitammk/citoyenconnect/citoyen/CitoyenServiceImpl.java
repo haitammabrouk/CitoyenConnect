@@ -25,6 +25,10 @@ public class CitoyenServiceImpl implements CitoyenService {
         return citoyenRepository.save(citoyen);
     }
 
+    public Citoyen getCitoyenByToken(String token){
+        return citoyenRepository.findByToken(token);
+    }
+
     @Override
     public Citoyen addCitoyen(Citoyen citoyen) {
         return citoyenRepository.save(citoyen);
