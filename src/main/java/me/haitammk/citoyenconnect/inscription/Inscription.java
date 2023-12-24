@@ -122,7 +122,7 @@ public class Inscription {
     private byte[] carte_national;
 
     @Lob
-    @Column(name = "signature", columnDefinition = "BLOB")
+    @Column(name = "signature", length = Integer.MAX_VALUE)
     private byte[] signature;
 
     @Column(name = "date")

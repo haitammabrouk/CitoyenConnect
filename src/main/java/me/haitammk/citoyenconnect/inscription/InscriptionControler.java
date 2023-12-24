@@ -125,7 +125,6 @@ public class InscriptionControler {
                     "\r\n" + //
                     "Veuillez utiliser ce code lors de la création de votre compte. Cliquez sur le lien ci-dessous pour commencer le processus de création de compte :\r\n" + //
                     "\r\n" + //
-                    "[Insérer le lien de création de compte ici]\r\n" + //
                     "\r\n" + //
                     "Nous vous remercions de faire partie de notre communauté et restons à votre disposition pour toute assistance supplémentaire.\r\n" + //
                     "\r\n" + //

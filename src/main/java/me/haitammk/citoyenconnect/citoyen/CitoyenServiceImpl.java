@@ -36,6 +36,10 @@ public class CitoyenServiceImpl implements CitoyenService {
         return citoyenRepository.findById(cin).get();
     }
 
+    public Optional<Citoyen> getCitoyenByCodeConf(String code){
+        return citoyenRepository.findByCode_conf(code);
+    }
+
     public Optional<Citoyen> getCitoyenForeReset(String cin){
         return citoyenRepository.findById(cin);
     }

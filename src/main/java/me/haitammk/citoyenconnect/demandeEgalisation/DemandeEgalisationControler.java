@@ -1,26 +1,35 @@
 package me.haitammk.citoyenconnect.demandeEgalisation;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.citoyen.CitoyenService;
+import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
+import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class DemandeEgalisationControler {
     
     @Autowired
-    private CitoyenService citoyenService;
+    private CitoyenServiceImpl citoyenService;
 
     @Autowired
     private DemandeEgalisationService demandeEgalisationService;
@@ -31,20 +40,31 @@ public class DemandeEgalisationControler {
         return new ResponseEntity<>(demandeEgalisation,  HttpStatus.OK);
     }
 
-    @PostMapping(value = "/demandeEgalisations")
-    public ResponseEntity<HttpStatus> addDemandeEgalisation(@RequestBody Map<String, Object> requestParams){
+    @PostMapping(value = "/demandesEgalisation",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<HttpStatus> addDemandeConformite(@RequestParam("code") String code,
+    @RequestParam("cin") String cin,
+    @RequestParam("document") MultipartFile document,
+    @RequestParam("carte") MultipartFile carte) throws IOException
+    {
+        Optional<Citoyen> ctyn = citoyenService.getCitoyenByCodeConf(code);
+        if(ctyn.isPresent()){
+            Citoyen citoyen = ctyn.get();
+            if(code.equals(citoyen.getCode_conf())){
+                DemandeEgalisation demande = new DemandeEgalisation();
+                demande.setDate(new Date());
+                demande.setStatus("en cours");
+                demande.setCitoyen(citoyen);
+                demande.setDocument(document.getBytes());
+                demande.setCarte_national(carte.getBytes());
+                demandeEgalisationService.addDemandeEgalisation(demande);
 
-        String cin = (String)requestParams.get("cin");
-        Citoyen citoyen = citoyenService.getCitoyen(cin);
-
-        DemandeEgalisation demandeEgalisation = new DemandeEgalisation();
-        demandeEgalisation.setDocument((byte[])requestParams.get("document"));
-        demandeEgalisation.setRaison((String)requestParams.get("raison"));
-        demandeEgalisation.setStatus((String)requestParams.get("status"));
-        demandeEgalisation.setCitoyen(citoyen);
-        demandeEgalisation.setDate(new Date());
-        
-        return new ResponseEntity<>(HttpStatus.CREATED);
+                return new ResponseEntity<>(HttpStatus.CREATED);
+            }else {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping(value = "/demandeEgalisation/{id}")

@@ -57,7 +57,7 @@ public class ReclamationControler {
             SimpleMailMessage mail = new SimpleMailMessage();
             mail.setTo(reclamation.getEmail());
             mail.setSubject("Reponse Au Reclamation");
-            mail.setText("Cher [Nom],"+"\n"+
+            mail.setText("Cher Citoyen,"+"\n"+
 
            "Nous avons bien reçu votre réclamation concernant "+ reclamation.getMessage()+" "+reponse+"\n"+
             

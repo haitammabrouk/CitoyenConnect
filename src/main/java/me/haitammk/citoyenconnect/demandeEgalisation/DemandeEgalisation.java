@@ -26,6 +26,6 @@ public class DemandeEgalisation extends Demande {
     private Citoyen citoyen;
     
     @Lob
-    @Column(name = "carte_national", columnDefinition= "BLOB")
+    @Column(name = "carte_national", length = Integer.MAX_VALUE)
     private byte[] carte_national;
 }

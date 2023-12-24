@@ -37,6 +37,6 @@ public class Demande {
     private Date date;
 
     @Lob
-    @Column(name = "document", columnDefinition = "BLOB")
+    @Column(name = "document", length = Integer.MAX_VALUE)
     private byte[] document;
 }
