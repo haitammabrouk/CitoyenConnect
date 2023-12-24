@@ -1,10 +1,12 @@
 package me.haitammk.citoyenconnect.demandeConformite;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -78,9 +80,14 @@ public class DemandeConformiteControler {
     }
 
     @GetMapping(value = "/get-conformites")
-    public ResponseEntity<List<DemandeConformite>> getAllRapports(){
+    public ResponseEntity<List<DemandeConformiteDTO>> getAllConformites(){
         List<DemandeConformite> conformites = demandeConformiteService.getAllDemandesConformite();
-        return new ResponseEntity<>(conformites,  HttpStatus.OK);
+
+        List<DemandeConformiteDTO> conformitesDTO = conformites.stream()
+                                                    .map(DemandeConformiteDTO::new)
+                                                    .collect(Collectors.toList());
+
+        return new ResponseEntity<>(conformitesDTO,  HttpStatus.OK);
     }
 
     
