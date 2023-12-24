@@ -12,10 +12,14 @@ public class DemandeConformiteDTO {
     private Date date;
     private String email;
     private Long id;
+    private byte[] document;
+    private byte[] carte;
+
     
     public DemandeConformiteDTO(DemandeConformite conformite) {
         this.id = conformite.getId();
         this.date = conformite.getDate();
+        this.document = conformite.getDocument();
         
         if(conformite.getCitoyen() != null){
             this.nom = conformite.getCitoyen().getNom();

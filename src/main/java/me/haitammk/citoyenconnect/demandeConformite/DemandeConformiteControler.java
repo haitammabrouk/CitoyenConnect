@@ -38,9 +38,10 @@ public class DemandeConformiteControler {
     private DemandeConformiteService demandeConformiteService;
 
      @GetMapping(value = "/DemandeConformite/{id}")
-    public ResponseEntity<DemandeConformite> getDemandeConformite(@PathVariable("id") Long id){
+    public ResponseEntity<DemandeConformiteDTO> getDemandeConformite(@PathVariable("id") Long id){
         DemandeConformite demandeConformite = demandeConformiteService.getDemandeConformite(id);
-        return new ResponseEntity<>(demandeConformite,  HttpStatus.OK);
+        DemandeConformiteDTO conformiteDTO = new DemandeConformiteDTO(demandeConformite);
+        return new ResponseEntity<>(conformiteDTO,  HttpStatus.OK);
     }
 
     @PostMapping(value = "/demandesConformite",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
