@@ -2,12 +2,24 @@ import React, { useRef } from 'react'
 import SignaturePad from '../components/SignarturePad'
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { useSession } from '../../SessionContext';
+import Login from './Login';
 
-function DecalarationCelibatTemplate() {
+function DecalarationCelibatCitoyen() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
 
     const pdfRef = useRef();
 
-  const downloadPdf = () => {
+    const downloadPdf = () => {
     const input = pdfRef.current;
 
     html2canvas(input).then((canvas) => {
@@ -27,7 +39,8 @@ function DecalarationCelibatTemplate() {
   };
 
   return (
-    <div className='w-full font-cairo'>
+    checkId(sessionId) ? <Login /> : (
+        <div className='w-full font-cairo'>
         <div className="page flex justify-center pt-14">
             <div className="page-content px-3" ref={pdfRef}>
                 <div className="title pb-5">
@@ -66,7 +79,8 @@ function DecalarationCelibatTemplate() {
           </button>
         </div>
     </div>
+    )
   )
 }
 
-export default DecalarationCelibatTemplate
+export default DecalarationCelibatCitoyen

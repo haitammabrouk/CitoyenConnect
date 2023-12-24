@@ -21,7 +21,7 @@ function FonctionnaireArronHome() {
         <div className='w-full font-cairo'>
         <FonctionnaireArronNavbar />
         <div className="page min-h-screen flex justify-center px-6 pt-6">
-            <div className="page-content bg-[#efeff5] px-10 py-10">
+            <div className="page-content bg-[#f2f5f3] px-10 py-10">
                 <div className="welcome">
                     <h1 className='text-3xl font-semibold'>Bienvenue Haitam Mabrouk</h1>
                 </div>

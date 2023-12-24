@@ -23,6 +23,13 @@ import ModificationMdpFonctionnaire from './pages/ModificationMdpFonctionnaire'
 import InsertPdf from './pages/InsertPdf';
 import DeclarationHonneurTemplate from './pages/DeclarationHonneurTemplate'
 import PdfToJspdf from './pages/PdfToJspdf';
+import DeclarationCelibatTemplate from './pages/DecalarationCelibatTemplate'
+import DemandeEgalisation from './pages/DemandeEgalisation'
+import DemandeSignature from './pages/DemandeSignature'
+import DeclarationHonneurCitoyen from './pages/DeclarationHonneurCitoyen';
+import DecalarationCelibatCitoyen from './pages/DeclarationCelibatCitoyen';
+import FonctionnaireDemandesConformite from './pages/FonctionnaireDemandeConformite'
+import FonctionnaireDemandesEgalisation from './pages/FonctionnaireDemandesEgalisation'
 
 
 
@@ -55,8 +62,16 @@ function App() {
           <Route path='/creation-mdp' element = {<CreationMdp />} />
           <Route path='/insert-pdf' element = {<InsertPdf />} />
           <Route path='/pdf-to-jspdf' element = {<PdfToJspdf />} />
+          <Route path='/citoyen-egalisation' element = {<DemandeEgalisation />} />
+          <Route path='/citoyen-signature' element = {<DemandeSignature />} />
           <Route path='/modification-mdp-admin' element = {<ModificationMdpFonctionnaire />} />
-          <Route path='/declaration-honneur' element = {<DeclarationHonneurTemplate/>} />
+          <Route path='/declaration-honneur-template' element = {<DeclarationHonneurTemplate/>} />
+          <Route path='/declaration-celibat-template' element = {<DeclarationCelibatTemplate/>} />
+          <Route path='/honneur-citoyen' element = {<DeclarationHonneurCitoyen/>} />
+          <Route path='/celibat-citoyen' element = {<DecalarationCelibatCitoyen/>} />
+          <Route path='/citoyen-demandes' element = {<CitoyenDemandes/>} />
+          <Route path='/admin-demandes-egalisation' element = {<FonctionnaireDemandesEgalisation/>} />
+          <Route path='/admin-demandes-conformite' element = {<FonctionnaireDemandesConformite/>} />
         </Routes>
       </Router>
     </>

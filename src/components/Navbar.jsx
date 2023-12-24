@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../assets/logo.png'
 import { Link } from "react-router-dom"
-import { faHouse, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCircleQuestion, faHouse, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="lower pt-3">
             <ul className='links bg-[#336C4E] flex justify-evenly text-[#ffffff] py-1'>
                 <li><Link to='/'><span className='pr-2'><FontAwesomeIcon icon={faHouse} /></span><span>Accueil</span></Link></li>
-                <li><Link to = '/reclamations'><span className='pr-2'><FontAwesomeIcon icon={faHouse} /></span><span>Réclamations</span></Link></li>
+                <li><Link to = '/reclamations'><span className='pr-2'><FontAwesomeIcon icon={faCircleQuestion} /></span><span>Réclamations</span></Link></li>
                 <li><Link to = '/login'><span className='pr-2'><FontAwesomeIcon icon={faUser} /></span><span>Connexion</span></Link></li>
             </ul>
         </div>

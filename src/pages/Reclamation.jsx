@@ -3,6 +3,7 @@ import { useState } from "react";
 import CitoyenOptions from "../components/CitoyenOptions"
 import Footer from "../components/Footer"
 import axios from "axios";
+import UtilisateurOptions from "../components/UtilisateurOptions";
 
 
 
@@ -93,7 +94,7 @@ function Reclamation() {
                     <div className="card-services rounded-sm shadow-xl pt-8">
                         <div className="second-section">
                             <div className="second-section-content">
-                                <CitoyenOptions />
+
                             </div>
                         </div>
                     </div>

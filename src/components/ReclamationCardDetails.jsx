@@ -57,7 +57,7 @@ function ReclamationCardDetails({ reclamation, nom, id, date, message}) {
                             <button className='py-2 px-3 mt-2 bg-[#58815c] text-[#ffffff]'>Envoyer</button>
                         </form>
                         {
-                            check && <p className=" pt-2 font-bold text-sm text-[#2b5b41]">Le demande inscription a ete accepte.</p>
+                            check && <p className=" pt-2 font-bold text-sm text-[#2b5b41]">Le reponse au reclamation a ete envoye.</p>
                         }
                     </ul>
                 </div>

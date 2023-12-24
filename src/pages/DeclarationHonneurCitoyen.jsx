@@ -3,8 +3,19 @@ import SignaturePad from '../components/SignarturePad';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useSession } from '../../SessionContext';
+import Login from './Login';
 
-function DeclarationHonneurTemplate() {
+function DeclarationHonneurCitoyen() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
 
   const pdfRef = useRef();
 
@@ -28,7 +39,8 @@ function DeclarationHonneurTemplate() {
   };
 
   return (
-    <div className='w-full font-cairo'>
+    checkId(sessionId) ? <Login /> : (
+        <div className='w-full font-cairo'>
       <div className="page flex justify-center pt-20">
         <div className="page-content px-3 " ref={pdfRef}>
           <div className="title pb-5">
@@ -70,7 +82,8 @@ function DeclarationHonneurTemplate() {
           </button>
         </div>
     </div>
+    )
   );
 }
 
-export default DeclarationHonneurTemplate;
+export default DeclarationHonneurCitoyen;

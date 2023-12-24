@@ -25,7 +25,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="second-section pb-8 bg-[#336C4E] text-[#ffffff] flex flex-wrap-reverse justify-evenly items-center">
+            <div className="second-section pb-14 bg-[#336C4E] text-[#ffffff] flex flex-wrap-reverse justify-evenly items-center">
                 <div className="first-part">
                     <h1 className="text-5xl font-semibold py-10">Services Proposés</h1>
                     <ul className="services text-lg w-custom space-y-5">

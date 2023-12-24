@@ -11,6 +11,11 @@ function CitoyenNavbar() {
 
     const {sessionId} = useSession();
 
+    const setIdNull = (id) => {
+        id = null;
+        window.location.reload();
+      }
+
 
     const [citoyen, setCitoyen] = useState();
 
@@ -21,14 +26,16 @@ function CitoyenNavbar() {
         }).catch((error) => {
             console.log("error fetching citoyen informations ", error);
         });
-    });
+    }, [sessionId]);
 
   return (
     <div className='w-full font-cairo'>
         <div className="upper flex items-center flex-wrap ">
-            <div className="logo w-80 pl-5">
-                <img src={logo} alt="" />
-            </div>
+            <Link to='/citoyen-home'>
+                <div className="logo w-80 pl-5">
+                    <img src={logo} alt="" />
+                </div>
+            </Link>
             <div className='text-2xl text-center '>
                 <h1>
                     Plateforme Numerique de Gestion des Documents Administratives
@@ -50,8 +57,8 @@ function CitoyenNavbar() {
                         </a>
                     <div className="dropdown-content">
                         <Link to='/citoyen-profile'>Consulter votre profil</Link>
-                        <a href="#">Vos Demandes</a>
-                        <a href="#">Deconnexion</a>
+                        <Link to='/citoyen-demandes'>Vos Demandes</Link>
+                        <Link to='/login' onClick={() => setIdNull(sessionId)}>Deconnexion</Link>
                     </div>
                 </li>
             </ul>

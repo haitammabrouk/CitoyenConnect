@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import '../styles/citoyenhome.css'
 
 function CitoyenOptions() {
@@ -6,50 +7,32 @@ function CitoyenOptions() {
                                 <nav>
                                     <ul className="mcd-menu">
                                         <li>
-                                            <a href="">
+                                            <Link to='/citoyen-signature'>
                                                 <i className="fa fa-home"></i>
-                                                <strong>Demande Signature</strong>
+                                                <strong>Demande de Conformité</strong>
                                                
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="active">
+                                            <Link to='/citoyen-egalisation'>
                                                 <i className="fa fa-edit"></i>
                                                 <strong>Demande d'égalisation</strong>
                                               
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <Link to='/honneur-citoyen'>
                                                 <i className="fa fa-gift"></i>
                                                 <strong>Declaration D'honneur</strong>
                                          
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <Link to='/celibat-citoyen'>
                                                 <i className="fa fa-globe"></i>
                                                 <strong>Declaration Celibat</strong>
                                                
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <i className="fa fa-picture-o"></i>
-                                                <strong>Declaration de Décès</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <i className="fa fa-picture-o"></i>
-                                                <strong>Acte De Naissance</strong>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="">
-                                                <i className="fa fa-picture-o"></i>
-                                                <strong>Acte de Construction</strong>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a href="">

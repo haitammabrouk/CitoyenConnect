@@ -5,11 +5,25 @@ import Navbar from "../components/Navbar"
 import '../styles/citoyennavbar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import CitoyenNavbar from "../components/CitoyenNavbar"
+import { useSession } from "../../SessionContext"
+import Login from "./Login"
 
 
 function CitoyenDemandes() {
+
+    const { sessionId } = useSession();
+
+    const checkId = (id) => {
+        if(id === null){
+            return true
+        }else{
+            return false;
+        }
+    }
+
   return (
-    <div className="w-full font-cairo">
+    checkId(sessionId) ? <Login /> : (
+        <div className="w-full font-cairo">
         <CitoyenNavbar />
         <div className="sections">
             <div className="sections-content flex justify-center items-center pt-10">
@@ -20,13 +34,8 @@ function CitoyenDemandes() {
                             <div className="dropdown border border-[#000000] rounded-sm py-2 px-2">
                                 <button className="dropbtn"><span className="pr-3">Type du document</span><span><FontAwesomeIcon icon={faCaretDown} /></span></button>
                                 <div className="dropdown-content">
-                                    <a href="#">Acte De naissance</a>
-                                    <a href="#">Declaration de celibat</a>
                                     <a href="#">Demande d'egalisation</a>
                                     <a href="#">Demande de signature</a>
-                                    <a href="#">Declaration de construction</a>
-                                    <a href="#">Declaration d'honneur</a>
-                                    <a href="#">Declaration de deces</a>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +66,7 @@ function CitoyenDemandes() {
             </div>
         </div>
     </div>
+    )
   )
 }
 
