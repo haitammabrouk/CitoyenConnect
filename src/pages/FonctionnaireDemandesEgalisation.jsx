@@ -55,7 +55,7 @@ function FonctionnaireDemandesEgalisation() {
             <div className="sections-content flex justify-center flex-wrap items-baseline pt-10">
                 <div className="first">
                     <div className="title pb-4">
-                        <h1 className="text-sm font-bold border-b-2 border-b-[#C3C5C3] text-center pb-3">Vous pouvez consulter les demandes de conformité des citoyens ci-dessous.</h1>
+                        <h1 className="text-sm font-bold border-b-2 border-b-[#C3C5C3] text-center pb-3">Vous pouvez consulter les demandes d'egalisation des citoyens ci-dessous.</h1>
                     </div>
                     <div className="first-content">
                         <DemandeEgalisationCardList onSelectInscription={handleSelectInscription} />

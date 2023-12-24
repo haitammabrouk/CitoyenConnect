@@ -30,6 +30,8 @@ import DeclarationHonneurCitoyen from './pages/DeclarationHonneurCitoyen';
 import DecalarationCelibatCitoyen from './pages/DeclarationCelibatCitoyen';
 import FonctionnaireDemandesConformite from './pages/FonctionnaireDemandeConformite'
 import FonctionnaireDemandesEgalisation from './pages/FonctionnaireDemandesEgalisation';
+import PdfViewer from './pages/PdfViewer';
+import FonctionnaireConformiteDetails from './pages/FonctionnaireConformiteDetails'
 
 
 
@@ -45,6 +47,7 @@ function App() {
           <Route path='/inscription-en-cours' element={<InscriptionEnCours/>} />
           <Route path='/fonctionnaire-demandes-inscription' element={<FonctionnaireArronDemandeInsc/>} />
           <Route path='/fonctionnaire-demandes-inscription-details/:id' element={<FonctionnaireDemandeInscDetails/>} />
+          <Route path='/fonctionnaire-conformite-details/:id' element={<FonctionnaireConformiteDetails/>} />
           <Route path='/fonctionnaire-reclamations' element={<FonctionnaireArronReclamations/>} />
           <Route path='/citoyen-demandes' element={<CitoyenDemandes/>} />
           <Route path='/demande-inscription' element={<DemandeInscription/>} />
@@ -72,6 +75,7 @@ function App() {
           <Route path='/citoyen-demandes' element = {<CitoyenDemandes/>} />
           <Route path='/admin-demandes-egalisation' element = {<FonctionnaireDemandesEgalisation/>} />
           <Route path='/admin-demandes-conformite' element = {<FonctionnaireDemandesConformite/>} />
+          <Route path='/pdf-viewer' element = {<PdfViewer/>} />
         </Routes>
       </Router>
     </>
