@@ -2,8 +2,10 @@ package me.haitammk.citoyenconnect.demandeEgalisation;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,7 @@ import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.citoyen.CitoyenService;
 import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
+import me.haitammk.citoyenconnect.demandeConformite.DemandeConformiteDTO;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -77,4 +80,18 @@ public class DemandeEgalisationControler {
         demandeEgalisationService.updateDemandeEgalisation(demandeEgalisation, id);
         return new ResponseEntity<>(demandeEgalisation, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/get-egalisations")
+    public ResponseEntity<List<DemandeEgalisationDTO>> getAllEgalisations(){
+        List<DemandeEgalisation> egalisations = demandeEgalisationService.getAllDemandesEgalisation();
+
+        List<DemandeEgalisationDTO> egalisationsDTO = egalisations.stream()
+                                                    .map(DemandeEgalisationDTO::new)
+                                                    .collect(Collectors.toList());
+
+        return new ResponseEntity<>(egalisationsDTO,  HttpStatus.OK);
+    }
+
+
+    
 }
