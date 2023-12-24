@@ -29,7 +29,7 @@ import DemandeSignature from './pages/DemandeSignature'
 import DeclarationHonneurCitoyen from './pages/DeclarationHonneurCitoyen';
 import DecalarationCelibatCitoyen from './pages/DeclarationCelibatCitoyen';
 import FonctionnaireDemandesConformite from './pages/FonctionnaireDemandeConformite'
-import FonctionnaireDemandesEgalisation from './pages/FonctionnaireDemandesEgalisation'
+import FonctionnaireDemandesEgalisation from './pages/FonctionnaireDemandesEgalisation';
 
 
 
