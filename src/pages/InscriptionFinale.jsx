@@ -62,7 +62,7 @@ function InscriptionFinale() {
                             </div>
                             <div className="code">
                                 <label className="text-xs font-semibold block pb-3" htmlFor="code">Code confidentiel <span className="text-[#FF0000]">*</span></label>
-                                <input value={code} onChange={handleCodeChange} className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="code" name="code" />
+                                <input value={code} onChange={handleCodeChange} className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="password" id="code" name="code" />
                             </div>
                         </div>
                     </div>

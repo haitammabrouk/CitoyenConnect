@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 function PdfViewer({fileUrl, text}) {
   return (
     <div className="App">
-        <div className="container  pt-2 flex justify-start pl-24">
+        <div className="container  pt-2 ">
   
   <button type="button" className="btn bg-[#336C4E] text-[#ffffff] ml-20" data-bs-toggle="modal" data-bs-target="#exampleModal">
     {text}

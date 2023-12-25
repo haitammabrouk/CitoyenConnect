@@ -35,13 +35,15 @@ function FonctionnaireDemandesConformite() {
     const [id, setId] = useState('');
     const [nom, setNom] = useState('');
     const [prenom, setPrenom] = useState('');
+    const [document, setDocument] = useState(null);
 
-    const handleSelectInscription = (inscription, id, date, nom, prenom) => {
+    const handleSelectInscription = (inscription, id, date, nom, prenom, document) => {
         setSelectedInscription(inscription);
         setDate(date);
         setNom(nom);
         setPrenom(prenom);
         setId(id);
+        setDocument(document);
         console.log(inscription);
     };
 
@@ -62,7 +64,7 @@ function FonctionnaireDemandesConformite() {
                 <div className="second pl-6">
                     <div className="second-content">
                         {selectedInscription && <DemandeConformiteCardDetails id = {id} 
-                        nom = {nom} prenom = {prenom} date = {date} inscription={selectedInscription} />}
+                        nom = {nom} doc = {document} prenom = {prenom} date = {date} inscription={selectedInscription} />}
                     </div>
                 </div>
             </div>

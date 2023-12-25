@@ -32,6 +32,8 @@ import FonctionnaireDemandesConformite from './pages/FonctionnaireDemandeConform
 import FonctionnaireDemandesEgalisation from './pages/FonctionnaireDemandesEgalisation';
 import PdfViewer from './pages/PdfViewer';
 import FonctionnaireConformiteDetails from './pages/FonctionnaireConformiteDetails'
+import FonctionnaireEgalisationDetails from './pages/FonctionnaireEgalisationDetails';
+import ModificationMdpCitoyen from './pages/ModificationMdpCitoyen';
 
 
 
@@ -48,6 +50,7 @@ function App() {
           <Route path='/fonctionnaire-demandes-inscription' element={<FonctionnaireArronDemandeInsc/>} />
           <Route path='/fonctionnaire-demandes-inscription-details/:id' element={<FonctionnaireDemandeInscDetails/>} />
           <Route path='/fonctionnaire-conformite-details/:id' element={<FonctionnaireConformiteDetails/>} />
+          <Route path='/fonctionnaire-egalisation-details/:id' element={<FonctionnaireEgalisationDetails/>} />
           <Route path='/fonctionnaire-reclamations' element={<FonctionnaireArronReclamations/>} />
           <Route path='/citoyen-demandes' element={<CitoyenDemandes/>} />
           <Route path='/demande-inscription' element={<DemandeInscription/>} />
@@ -68,6 +71,7 @@ function App() {
           <Route path='/citoyen-egalisation' element = {<DemandeEgalisation />} />
           <Route path='/citoyen-signature' element = {<DemandeSignature />} />
           <Route path='/modification-mdp-admin' element = {<ModificationMdpFonctionnaire />} />
+          <Route path='/modification-mdp-citoyen' element = {<ModificationMdpCitoyen />} />
           <Route path='/declaration-honneur-template' element = {<DeclarationHonneurTemplate/>} />
           <Route path='/declaration-celibat-template' element = {<DeclarationCelibatTemplate/>} />
           <Route path='/honneur-citoyen' element = {<DeclarationHonneurCitoyen/>} />

@@ -4,10 +4,15 @@ import { useSession } from '../../SessionContext';
 import axios from 'axios';
 import Login from './Login';
 import { Link } from 'react-router-dom';
+import PdfViewer from './PdfViewer';
 
 function ConsultationProfil() {
 
     const [citoyen, setCitoyen] = useState();
+
+    const [pdfUrl, setPdfUrl] = useState();
+
+    const [carteUrl, setCarteUrl] = useState();
 
 
     const { sessionId } = useSession();
@@ -29,6 +34,21 @@ function ConsultationProfil() {
             console.log("error fetching citoyen informations ", error);
         });
     }, [sessionId]);
+
+    useEffect(() => {
+        if (citoyen) {
+            const decodedContent = Uint8Array.from(atob(citoyen.personal_image), c => c.charCodeAt(0));
+            const documentBlob = new Blob([decodedContent], { type: 'application/pdf' });
+            const documentUrl = URL.createObjectURL(documentBlob);
+
+            const decodedContentsecond = Uint8Array.from(atob(citoyen.carte_national), c => c.charCodeAt(0));
+            const documentBlobsecond = new Blob([decodedContentsecond], { type: 'application/pdf' });
+            const documentUrsecond = URL.createObjectURL(documentBlobsecond);
+
+            setPdfUrl(documentUrl);
+            setCarteUrl(documentUrsecond);
+        }
+    }, [citoyen]);
 
   return (
     checkId(sessionId) ? <Login /> : (
@@ -89,7 +109,7 @@ function ConsultationProfil() {
                                 <div className="pwd">
                                     <label className="text-xs font-semibold block pb-3" htmlFor="pwd">Mot de passe <span className="text-[#FF0000]">*</span></label>
                                     <input value={citoyen.password} className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="password" id="pwd" name="pwd" disabled />
-                                    <Link to = '/entrer-cin' className="text-[#4A4D49] block pt-1 pl-2 text-sm underline">Mot de passe oublié ?</Link>
+                                    <Link to = '/modification-mdp-citoyen' className="text-[#4A4D49] block pt-1 pl-2 text-sm underline">Mot de passe oublié ?</Link>
                                 </div>
                                 <div className="cin_pere">
                                     <label className="text-xs font-semibold block pb-3" htmlFor="cin_pere">CIN du père <span className="text-[#FF0000]">*</span></label>
@@ -115,14 +135,12 @@ function ConsultationProfil() {
                                     <label className="text-xs font-semibold block pb-3" htmlFor="prenom_mere">Prenom de la mère <span className="text-[#FF0000]">*</span></label>
                                     <input value={citoyen.prenom_mere}  className="border border-[#B0B0B0] h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="prenom_mere" name="prenom_mere" disabled />
                                 </div>
-                                <div className="image">
-                                    <label className="text-xs font-semibold block pb-3" htmlFor="image">Image personelle <span className="text-[#FF0000]">*</span></label>
-                                    <input type="file"  id="image" name="image" />
-                                </div>
-                                <div className="carte_national">
-                                    <label className="text-xs font-semibold block pb-3" htmlFor="carte_national">Carte nationale (scanné) <span className="text-[#FF0000]">*</span></label>
-                                    <input type="file" id="carte_national" name="carte_national" />
-                                </div>
+                                    <div className="image  pl-36">
+                                    {pdfUrl && <PdfViewer fileUrl={pdfUrl} text={"Image Personnel"} />}
+                                    </div>
+                                    <div className="carte_national pl-40">
+                                    {carteUrl && <PdfViewer fileUrl={carteUrl} text={"Carte National"} />}
+                                    </div>
                             </div>
                         </div>
                     </form>

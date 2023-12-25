@@ -251,11 +251,11 @@ function DemandeInscription() {
                                     <input value={prenomMere} onChange={handlePrenomMereChange} className="border border-[#B0B0B0] pb-3 h-12 w-96 pl-2 rounded-3xl outline-none" type="text" id="prenom_mere" name="prenom_mere" />
                                 </div>
                                 <div className="image">
-                                    <label className="text-xs font-semibold block pb-3" htmlFor="image">Image personelle <span className="text-[#FF0000]">*</span></label>
+                                    <label className="text-xs font-semibold block pb-3" htmlFor="image">Image personelle(pdf) <span className="text-[#FF0000]">*</span></label>
                                     <input type="file" onChange={(e) => handleFileChange(e, 'personal_image')} id="image" name="image" />
                                 </div>
                                 <div className="carte_national">
-                                    <label className="text-xs font-semibold block pb-3" htmlFor="carte_national">Carte nationale (scanné) <span className="text-[#FF0000]">*</span></label>
+                                    <label className="text-xs font-semibold block pb-3" htmlFor="carte_national">Carte nationale (scanné pdf) <span className="text-[#FF0000]">*</span></label>
                                     <input type="file" onChange={(e) => handleFileChange(e, 'carte_national')} id="carte_national" name="carte_national" />
                                 </div>
                             </div>

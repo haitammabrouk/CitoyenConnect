@@ -102,9 +102,11 @@ function FonctionnaireConformiteDetails() {
                         )}
                     </div>
                 </div>
-
-                {/* Use PdfViewer component for displaying PDF */}
+                <div className='pl-20'>
+                    {/* Use PdfViewer component for displaying PDF */}
                 {pdfUrl && <PdfViewer fileUrl={pdfUrl} text={"ouvrir le document"} />}
+                </div>
+                
             </div>
         )
     );

@@ -15,7 +15,7 @@ function DemandeEgalisationCardDetails({ inscription, nom, prenom, id, date }) {
                 <span className='font-semibold text-[#636363] pl-2'>, le </span> <span className='font-semibold'>{date}</span></p>
         </div>
         <div className="infos px-4">
-            <p className="text-sm underline text-[#007ad9]"><Link to={`/fonctionnaire-demandes-inscription-details/${id}`}>
+            <p className="text-sm underline text-[#007ad9]"><Link to={`/fonctionnaire-egalisation-details/${id}`}>
             Vérifier les informations liées à la demande.(lien)
           </Link></p>
             <div className="infos-content space-y-6 pb-3">

@@ -26,7 +26,7 @@ function DemandeConformiteCardList({onSelectInscription}) {
         inscriptions.map((inscription) => 
 
         <li key={inscription.id}><DemandeConformiteCard id = {inscription.id} nom = {inscription.nom} prenom={inscription.prenom}
-        email = {inscription.email} date={inscription.date} selectInscription={() => onSelectInscription(inscription, inscription.id, inscription.date, inscription.nom, inscription.prenom)} /> </li>
+        email = {inscription.email} doc = {inscription.document} date={inscription.date} selectInscription={() => onSelectInscription(inscription, inscription.id, inscription.date, inscription.nom, inscription.prenom, inscription.document)} /> </li>
         )
       }
       </ul>
