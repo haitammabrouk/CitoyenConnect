@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpHeaders;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -43,6 +46,26 @@ public class DemandeConformiteControler {
         DemandeConformiteDTO conformiteDTO = new DemandeConformiteDTO(demandeConformite);
         return new ResponseEntity<>(conformiteDTO,  HttpStatus.OK);
     }
+
+
+    @GetMapping(value = "/DocumentConformite/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+public ResponseEntity<byte[]> getDocumentConformite(@PathVariable("id") Long id) {
+    DemandeConformite demandeConformite = demandeConformiteService.getDemandeConformite(id);
+
+    if (demandeConformite != null) {
+        // Assuming 'document' is a byte array or a Blob in DemandeConformite
+        byte[] documentBytes = demandeConformite.getDocument(); // Replace 'getDocument()' with your actual method
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDispositionFormData("inline", "document_" + id + ".pdf");
+
+        return new ResponseEntity<>(documentBytes, headers, HttpStatus.OK);
+    } else {
+        // Handle the case when demandeConformite is not found
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}
+
 
     @PostMapping(value = "/demandesConformite",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)

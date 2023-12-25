@@ -37,10 +37,11 @@ public class DemandeEgalisationControler {
     @Autowired
     private DemandeEgalisationService demandeEgalisationService;
 
-     @GetMapping(value = "/demandeEgalisation/{id}")
-    public ResponseEntity<DemandeEgalisation> getDemandeEgalisation(@PathVariable("id") Long id){
+    @GetMapping(value = "/DemandeEgalisation/{id}")
+    public ResponseEntity<DemandeEgalisationDTO> getDemandeEgalisation(@PathVariable("id") Long id){
         DemandeEgalisation demandeEgalisation = demandeEgalisationService.getDemandeEgalisation(id);
-        return new ResponseEntity<>(demandeEgalisation,  HttpStatus.OK);
+        DemandeEgalisationDTO egalisationDTO = new DemandeEgalisationDTO(demandeEgalisation);
+        return new ResponseEntity<>(egalisationDTO,  HttpStatus.OK);
     }
 
     @PostMapping(value = "/demandesEgalisation",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,

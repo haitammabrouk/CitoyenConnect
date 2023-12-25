@@ -13,7 +13,6 @@ public class DemandeConformiteDTO {
     private String email;
     private Long id;
     private byte[] document;
-    private byte[] carte;
 
     
     public DemandeConformiteDTO(DemandeConformite conformite) {

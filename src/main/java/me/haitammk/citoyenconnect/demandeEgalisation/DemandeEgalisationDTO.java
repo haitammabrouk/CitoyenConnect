@@ -12,10 +12,14 @@ public class DemandeEgalisationDTO {
     private Date date;
     private String email;
     private Long id;
+    private byte[] document;
+    private byte[] carte;
     
     public DemandeEgalisationDTO(DemandeEgalisation egalisation) {
         this.id = egalisation.getId();
         this.date = egalisation.getDate();
+        this.document = egalisation.getDocument();
+        this.carte = egalisation.getCarte_national();
         
         if(egalisation.getCitoyen() != null){
             this.nom = egalisation.getCitoyen().getNom();
