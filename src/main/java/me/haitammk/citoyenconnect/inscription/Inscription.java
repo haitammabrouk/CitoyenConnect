@@ -33,8 +33,11 @@ public class Inscription {
     private Long id;
 
     
-    @Column(name = "cin")
+    @Column(name = "cin", unique = true)
     private String cin;
+
+    @Column(name = "status")
+    private String status;
 
     
     @Column(name = "nom")

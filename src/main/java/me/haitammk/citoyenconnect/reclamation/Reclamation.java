@@ -30,6 +30,9 @@ public class Reclamation {
     @Column(name = "id_reclamation")
     private Long id;
 
+    @Column(name = "status")
+    private String status;
+
     @Column(name = "date")
     private Date date;
     

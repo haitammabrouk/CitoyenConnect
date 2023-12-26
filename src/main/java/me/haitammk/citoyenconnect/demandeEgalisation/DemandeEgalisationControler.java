@@ -8,9 +8,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,16 +28,69 @@ import me.haitammk.citoyenconnect.citoyen.CitoyenService;
 import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
 import me.haitammk.citoyenconnect.demandeConformite.DemandeConformiteDTO;
+import me.haitammk.citoyenconnect.email.EmailService;
+import me.haitammk.citoyenconnect.inscription.Inscription;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class DemandeEgalisationControler {
     
     @Autowired
     private CitoyenServiceImpl citoyenService;
 
     @Autowired
-    private DemandeEgalisationService demandeEgalisationService;
+    private DemandeEgalisationServiceImpl demandeEgalisationService;
+
+    @Autowired
+    private DemandeEgalisationRepository repo;
+
+    @Autowired
+    private EmailService emailService;
+
+    @GetMapping(value = "/egalisation-encours")
+    public ResponseEntity<Long> getEgalisationEnCours(){
+        List<DemandeEgalisation> insEnCours = demandeEgalisationService.getEgalisationCours();
+        long count = insEnCours.stream().count();
+        return new ResponseEntity<>(count,  HttpStatus.OK);
+    }
+    @PostMapping(value = "/egalisation-rejeter")
+    public ResponseEntity<HttpStatus> rejeterInscription(@RequestParam Map<String, String> requestParams){
+     
+        String id = requestParams.get("id");
+
+        String raison = requestParams.get("raison");
+
+        Long longId = Long.parseLong(id);
+        DemandeEgalisation ins = demandeEgalisationService.getDemandeEgalisation(longId);
+        DemandeEgalisationDTO dto = new DemandeEgalisationDTO(ins);
+        ins.setStatus("rejete");
+        repo.save(ins);
+        
+
+        if(ins == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else{
+            System.out.println("Inscription found");
+            
+            demandeEgalisationService.updateRaisonEgalisation(ins, raison);
+
+            SimpleMailMessage mail = new SimpleMailMessage();
+            mail.setTo(dto.getEmail());
+            mail.setSubject("Rejet Demande d'egalisation");
+            mail.setText("Cher Citoyen,\r\n" + //
+                    "\r\n" + //
+                    "je suis desole de vous informe que votre demande d'egalisation a ete refuse or :\r\n" + //
+                    raison+
+                    "\r\n" + //
+                    "CitoyenConnect");
+
+            emailService.sendEmail(mail);
+            System.out.println("email has been sent succefully");
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
+
 
     @GetMapping(value = "/DemandeEgalisation/{id}")
     public ResponseEntity<DemandeEgalisationDTO> getDemandeEgalisation(@PathVariable("id") Long id){
@@ -43,6 +98,24 @@ public class DemandeEgalisationControler {
         DemandeEgalisationDTO egalisationDTO = new DemandeEgalisationDTO(demandeEgalisation);
         return new ResponseEntity<>(egalisationDTO,  HttpStatus.OK);
     }
+
+    @GetMapping(value = "/DocumentEgalisation/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+public ResponseEntity<byte[]> getDocumentEgalisation(@PathVariable("id") Long id) {
+    DemandeEgalisation demandeConformite = demandeEgalisationService.getDemandeEgalisation(id);
+
+    if (demandeConformite != null) {
+        // Assuming 'document' is a byte array or a Blob in DemandeConformite
+        byte[] documentBytes = demandeConformite.getDocument(); // Replace 'getDocument()' with your actual method
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDispositionFormData("inline", "document_" + id + ".pdf");
+
+        return new ResponseEntity<>(documentBytes, headers, HttpStatus.OK);
+    } else {
+        // Handle the case when demandeConformite is not found
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}
 
     @PostMapping(value = "/demandesEgalisation",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)

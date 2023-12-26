@@ -105,11 +105,11 @@ public class Personne {
     private String adresse;
 
     @Lob
-    @Column(name = "personal_image", columnDefinition = "BLOB")
+    @Column(name = "personal_image", length = Integer.MAX_VALUE)
     private byte[] personal_image;
 
     @Lob
-    @Column(name = "carte_national", columnDefinition = "BLOB")
+    @Column(name = "carte_national", length = Integer.MAX_VALUE)
     private byte[] carte_national;
 
     @Lob

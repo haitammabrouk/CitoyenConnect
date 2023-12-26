@@ -25,7 +25,7 @@ import me.haitammk.citoyenconnect.personne.Personne;
 @Getter
 public class Citoyen extends Personne {
     
-    @Column(name = "code_conf")
+    @Column(name = "code_conf", unique = true)
     private String code_conf;
 
     @JsonIgnore

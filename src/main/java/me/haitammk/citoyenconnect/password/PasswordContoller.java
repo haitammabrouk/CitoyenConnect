@@ -21,7 +21,7 @@ import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 import me.haitammk.citoyenconnect.email.EmailService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class PasswordContoller {
 
     @Autowired

@@ -20,7 +20,7 @@ import me.haitammk.citoyenconnect.citoyen.CitoyenService;
 import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class LoginController {
 
     @Autowired

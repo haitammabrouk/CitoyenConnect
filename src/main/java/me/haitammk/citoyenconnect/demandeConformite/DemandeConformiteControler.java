@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,17 +29,72 @@ import org.springframework.web.multipart.MultipartFile;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.citoyen.CitoyenService;
 import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
+import me.haitammk.citoyenconnect.demandeEgalisation.DemandeEgalisation;
+import me.haitammk.citoyenconnect.demandeEgalisation.DemandeEgalisationDTO;
+import me.haitammk.citoyenconnect.email.EmailService;
 import me.haitammk.citoyenconnect.inscription.Inscription;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class DemandeConformiteControler {
     
     @Autowired
     private CitoyenServiceImpl citoyenService;
 
     @Autowired
-    private DemandeConformiteService demandeConformiteService;
+    private DemandeConformiteServiceImpl demandeConformiteService;
+
+    @Autowired
+    private DemandeConformiteRepository repo;
+
+    @Autowired
+    private EmailService emailService;
+
+
+    @PostMapping(value = "/conformite-rejeter")
+    public ResponseEntity<HttpStatus> rejeterInscription(@RequestParam Map<String, String> requestParams){
+     
+        String id = requestParams.get("id");
+
+        String raison = requestParams.get("raison");
+
+        Long longId = Long.parseLong(id);
+        DemandeConformite ins = demandeConformiteService.getDemandeConformite(longId);
+        DemandeConformiteDTO dto = new DemandeConformiteDTO(ins);
+        ins.setStatus("rejete");
+        repo.save(ins);
+        
+
+        if(ins == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }else{
+            System.out.println("Inscription found");
+            
+            demandeConformiteService.updateRaisonConformite(ins, raison);
+
+            SimpleMailMessage mail = new SimpleMailMessage();
+            mail.setTo(dto.getEmail());
+            mail.setSubject("Rejet Demande de Conformite");
+            mail.setText("Cher Citoyen,\r\n" + //
+                    "\r\n" + //
+                    "je suis desole de vous informe que votre demande de conformite a ete refuse or :\r\n" + //
+                    raison+
+                    "\r\n" + //
+                    "CitoyenConnect");
+
+            emailService.sendEmail(mail);
+            System.out.println("email has been sent succefully");
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
+
+    @GetMapping(value = "/conformite-encours")
+    public ResponseEntity<Long> getConformiteEnCours(){
+        List<DemandeConformite> insEnCours = demandeConformiteService.getConformiteEnCours();
+        long count = insEnCours.stream().count();
+        return new ResponseEntity<>(count,  HttpStatus.OK);
+    }
 
      @GetMapping(value = "/DemandeConformite/{id}")
     public ResponseEntity<DemandeConformiteDTO> getDemandeConformite(@PathVariable("id") Long id){

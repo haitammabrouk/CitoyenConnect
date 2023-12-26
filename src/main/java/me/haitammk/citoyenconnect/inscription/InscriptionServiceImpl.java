@@ -21,6 +21,10 @@ public class InscriptionServiceImpl implements InscriptionService {
         inscriptionRepository.save(inscription);
     }
 
+    public List<Inscription> getInscriptionEnCours(){
+        return inscriptionRepository.findByStatus("en cours");
+    }
+
     @Override
     public Inscription addInscription(Inscription inscription) {
         return inscriptionRepository.save(inscription);

@@ -23,20 +23,31 @@ import me.haitammk.citoyenconnect.email.EmailServiceImpl;
 import me.haitammk.citoyenconnect.inscription.Inscription;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class ReclamationControler {
 
     @Autowired
     private EmailService emailService;
 
     @Autowired
-    private ReclamationService reclamationService;
+    private ReclamationServiceImpl reclamationService;
+
+    @Autowired
+    private ReclamationRepository repo;
     
     @GetMapping(value = "/reclamation/{id}")
     public ResponseEntity<Reclamation> getReclamation(@PathVariable("id") Long id){
         Reclamation reclamation = reclamationService.getReclamation(id);
         return new ResponseEntity<>(reclamation,  HttpStatus.OK);
     }
+
+    @GetMapping(value = "/reclamation-encours")
+    public ResponseEntity<Long> getReclamationEnCours(){
+        List<Reclamation> reclamationsEnCours = reclamationService.getReclamationEnCours();
+        long count = reclamationsEnCours.stream().count();
+        return new ResponseEntity<>(count,  HttpStatus.OK);
+    }
+
 
     @PostMapping(value = "/reclamation-reponse")
     public ResponseEntity<HttpStatus> rejeterInscription(@RequestParam Map<String, String> requestParams){
@@ -47,6 +58,8 @@ public class ReclamationControler {
 
         Long longId = Long.parseLong(id);
         Reclamation reclamation = reclamationService.getReclamation(longId);
+        reclamation.setStatus("disponible");
+        repo.save(reclamation);
         
 
         if(reclamation == null){
@@ -66,15 +79,17 @@ public class ReclamationControler {
             "Cordialement \n"+"CitoyenConnect");
 
             emailService.sendEmail(mail);
+            
             System.out.println("email has been sent succefully");
 
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }
+    
 
     @GetMapping(value = "/get-reclamations")
     public ResponseEntity<List<Reclamation>> getAllRapports(){
-        List<Reclamation> reclamations = reclamationService.getAllReclamations();
+        List<Reclamation> reclamations = reclamationService.getReclamationEnCours();
         return new ResponseEntity<>(reclamations,  HttpStatus.OK);
     }
 
@@ -89,6 +104,7 @@ public class ReclamationControler {
         reclamation.setMessage(message);
         reclamation.setNom(nom);
         reclamation.setDate(new Date());
+        reclamation.setStatus("en cours");
         reclamationService.addReclamation(reclamation);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

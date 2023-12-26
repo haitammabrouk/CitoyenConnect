@@ -24,9 +24,10 @@ import org.springframework.web.multipart.MultipartFile;
 import me.haitammk.citoyenconnect.citoyen.Citoyen;
 import me.haitammk.citoyenconnect.citoyen.CitoyenServiceImpl;
 import me.haitammk.citoyenconnect.email.EmailService;
+import me.haitammk.citoyenconnect.reclamation.Reclamation;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class InscriptionControler {
     
     @Autowired
@@ -36,7 +37,17 @@ public class InscriptionControler {
     private CitoyenServiceImpl citoyenService;
 
     @Autowired
+    private InscriptionRepository repo;
+
+    @Autowired
     private EmailService emailService;
+
+    @GetMapping(value = "/inscription-encours")
+    public ResponseEntity<Long> getInscriptionEnCours(){
+        List<Inscription> insEnCours = inscriptionService.getInscriptionEnCours();
+        long count = insEnCours.stream().count();
+        return new ResponseEntity<>(count,  HttpStatus.OK);
+    }
 
     @GetMapping(value = "/inscription/{id}")
     public ResponseEntity<Inscription> getInscription(@PathVariable("id") Long id){
@@ -53,6 +64,9 @@ public class InscriptionControler {
 
         Long longId = Long.parseLong(id);
         Inscription ins = inscriptionService.getInscription(longId);
+
+        ins.setStatus("rejete");
+        repo.save(ins);
         
 
         if(ins == null){
@@ -86,6 +100,9 @@ public class InscriptionControler {
 
         Long longId = Long.parseLong(id);
         Inscription ins = inscriptionService.getInscription(longId);
+
+        ins.setStatus("disponible");
+        repo.save(ins);
         
 
         if(ins == null){
@@ -140,7 +157,7 @@ public class InscriptionControler {
 
     @GetMapping(value = "/get-inscriptions")
     public ResponseEntity<List<Inscription>> getAllRapports(){
-        List<Inscription> inscriptions = inscriptionService.getAllInscriptions();
+        List<Inscription> inscriptions = inscriptionService.getInscriptionEnCours();
         return new ResponseEntity<>(inscriptions,  HttpStatus.OK);
     }
 
@@ -185,6 +202,7 @@ public class InscriptionControler {
         inscription.setPrenom_pere(prenomPere);
         inscription.setNationalite(nationalie);
         inscription.setSituationFamiliale(situation);
+        inscription.setStatus("en cours");
         inscription.setDate(new Date());
         inscriptionService.saveImageData(inscription, image, carteNational);
         return new ResponseEntity<>(HttpStatus.CREATED);

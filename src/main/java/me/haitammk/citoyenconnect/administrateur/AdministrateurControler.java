@@ -17,7 +17,7 @@ import me.haitammk.citoyenconnect.arrondisement.Arrondisement;
 import me.haitammk.citoyenconnect.arrondisement.ArrondisementService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 public class AdministrateurControler {
 
     @Autowired
