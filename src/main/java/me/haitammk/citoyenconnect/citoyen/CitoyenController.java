@@ -1,10 +1,12 @@
 package me.haitammk.citoyenconnect.citoyen;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.haitammk.citoyenconnect.demandeConformite.DemandeConformite;
+import me.haitammk.citoyenconnect.demandeEgalisation.DemandeEgalisation;
+import me.haitammk.citoyenconnect.reclamation.Reclamation;
+
 @RestController
+@CrossOrigin(origins = "http://localhost:5174")
 public class CitoyenController {
     
     @Autowired
@@ -22,6 +29,27 @@ public class CitoyenController {
     public ResponseEntity<Citoyen> getCitoyen(@PathVariable("cin") String cin){
         Citoyen citoyen = citoyenService.getCitoyen(cin);
         return new ResponseEntity<>(citoyen,  HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/nbr-citoyen")
+    public ResponseEntity<Long> getNbrCitoyen(){
+        List<Citoyen> citoyens = citoyenService.getAllCitoyens();
+        long count = citoyens.stream().count();
+        return new ResponseEntity<>(count,  HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/citoyen-conformites/{cin}")
+    public ResponseEntity<List<DemandeConformite>> getConformites(@PathVariable("cin") String cin){
+        Citoyen citoyen = citoyenService.getCitoyen(cin);
+        List<DemandeConformite> conformites = citoyen.getDemandes_conformite();
+        return new ResponseEntity<>(conformites,  HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/citoyen-egalisations/{cin}")
+    public ResponseEntity<List<DemandeEgalisation>> getEgalisations(@PathVariable("cin") String cin){
+        Citoyen citoyen = citoyenService.getCitoyen(cin);
+        List<DemandeEgalisation> egalisations = citoyen.getDemandes_egalisation();
+        return new ResponseEntity<>(egalisations,  HttpStatus.OK);
     }
 
     @PostMapping(value = "/citoyens")

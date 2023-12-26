@@ -26,30 +26,27 @@ import lombok.experimental.SuperBuilder;
 public class Personne {
     
     @Id
-    @NotBlank
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cin")
     private String cin;
 
-    @NotBlank
+    
     @Column(name = "nom")
     private String nom;
 
-    @NotBlank
+    
     @Column(name = "prenom")
     private String prenom;
 
     @Email
-    @NotBlank
+    
     @Column(name = "email")
     private String email;
 
-    @NotBlank
     @Column(name = "password")
     @Size(min = 8)
     private String password;
 
-    @NotBlank
+    
     @Column(name = "phone")
     private String phone ;
 
@@ -59,60 +56,60 @@ public class Personne {
     @Column(name = "expiry_token")
     private Date expiryToken;
 
-    @NotBlank
+    
     @Column(name = "situation_familiale")
     private String situationFamiliale;
 
-    @NotBlank
+    
     @Column(name = "date_naissance")
     private String dateNaissance;
 
-    @NotBlank
+    
     @Column(name = "lieu_naissance")
     private String lieuNaissance;
 
-    @NotBlank
+    
     @Column(name = "nationalite")
     private String nationalite;
 
-    @NotBlank
+    
     @Column(name = "cin_mere")
     private String cin_mere;
 
-    @NotBlank
+    
     @Column(name = "cin_pere")
     private String cin_pere;
 
-    @NotBlank
+    
     @Column(name = "nom_mere")
     private String nom_mere;
 
-    @NotBlank
+    
     @Column(name = "nom_pere")
     private String nom_pere;
 
-    @NotBlank
+    
     @Column(name = "prenom_mere")
     private String prenom_mere;
 
-    @NotBlank
+    
     @Column(name = "prenom_pere")
     private String prenom_pere;
 
-    @NotBlank
+    
     @Column(name = "sexe")
     private String sexe;
 
-    @NotBlank
+    
     @Column(name = "adresse")
     private String adresse;
 
     @Lob
-    @Column(name = "personal_image", columnDefinition = "BLOB")
+    @Column(name = "personal_image", length = Integer.MAX_VALUE)
     private byte[] personal_image;
 
     @Lob
-    @Column(name = "carte_national", columnDefinition = "BLOB")
+    @Column(name = "carte_national", length = Integer.MAX_VALUE)
     private byte[] carte_national;
 
     @Lob

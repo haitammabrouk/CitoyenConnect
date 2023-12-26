@@ -7,4 +7,6 @@ public interface AdministrateurService {
     Administrateur updateAdministrateur(String password, String cin);
 
     Administrateur getAdministrateur(String cin);
+
+    boolean administrateurAuthenticate(String cin, String password);
 }

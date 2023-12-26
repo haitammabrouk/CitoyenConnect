@@ -2,6 +2,8 @@ package me.haitammk.citoyenconnect.citoyen;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,12 +25,14 @@ import me.haitammk.citoyenconnect.personne.Personne;
 @Getter
 public class Citoyen extends Personne {
     
-    @Column(name = "code_conf")
+    @Column(name = "code_conf", unique = true)
     private String code_conf;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL)
     private List<DemandeEgalisation> demandes_egalisation;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "citoyen", cascade = CascadeType.ALL)
     private List<DemandeConformite> demandes_conformite;
 }

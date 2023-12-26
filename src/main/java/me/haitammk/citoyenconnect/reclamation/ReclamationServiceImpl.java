@@ -21,6 +21,10 @@ public class ReclamationServiceImpl implements ReclamationService {
         return reclamationRepository.findById(id).get();
     }
 
+    public List<Reclamation> getReclamationEnCours(){
+        return reclamationRepository.findByStatus("en cours");
+    }
+
     @Override
     public Reclamation removeReclamation(Long id) {
         Reclamation reclamation = this.getReclamation(id);
